@@ -2,23 +2,37 @@ package com.draizyyy.myreportcard;
 
 import android.util.Log;
 
+import androidx.annotation.NonNull;
+import androidx.room.ColumnInfo;
+import androidx.room.Embedded;
 import androidx.room.Entity;
+import androidx.room.Ignore;
 import androidx.room.PrimaryKey;
+
+import org.jetbrains.annotations.NotNull;
 
 import java.util.List;
 
 @Entity
 public class Day {
-    @PrimaryKey String day_name;
-    private List<Lesson> LessonsList;
-    private String dateOfDay;
+    @PrimaryKey
+    public int id;
+    @ColumnInfo(name = "Day name")
+    @NotNull
+    public String day_name;
+    @Ignore
+    public List<Lesson> LessonsList;
+    @ColumnInfo(name = "Date of day")
+    @NotNull
+    public String dateOfDay;
 
-    public Day(String day_name, List<Lesson> LessonsList) {
+    @Ignore
+    public Day(@NonNull String day_name, List<Lesson> LessonsList) {
         this.day_name = day_name;
         this.LessonsList = LessonsList;
         this.dateOfDay = getDate(day_name);
     }
-    public Day(String day_name, List<Lesson> LessonsList, String dateOfDay) {
+    public Day(@NonNull String day_name, List<Lesson> LessonsList, @NonNull String dateOfDay) {
         this.day_name = day_name;
         this.LessonsList = LessonsList;
         this.dateOfDay = dateOfDay;
@@ -85,7 +99,7 @@ public class Day {
         this.dateOfDay = date;
     }
 
-    public void setDay_name(String day_name) {
+    public void setDay_name(@NonNull String day_name) {
         this.day_name = day_name;
     }
 

@@ -4,6 +4,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
+import androidx.room.Room;
+
+import com.draizyyy.myreportcard.DayDatabase;
 
 import android.os.Bundle;
 import android.view.View;
@@ -15,12 +18,18 @@ import com.draizyyy.myreportcard.databinding.ActivityTimetableBinding;
 
 
 public class MainActivity extends AppCompatActivity {
+    private static MainActivity instance;
+    DayDatabase db;
     private ActivityMainBinding binding;
     private final FragmentManager fragmentManager = getSupportFragmentManager();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        instance = this;
+        db = Room.databaseBuilder(getApplicationContext(), DayDatabase.class, "data-database")
+                .allowMainThreadQueries()
+                .build();
         binding = ActivityMainBinding.inflate(getLayoutInflater());
 
 //        supportRequestWindowFeature(Window.FEATURE_NO_TITLE);
@@ -62,6 +71,9 @@ public class MainActivity extends AppCompatActivity {
             binding.settingsButton.setAlpha(1);
         });
 
+    }
+    public DayDatabase getDatabaseInstance() {
+        return db;
     }
     private void setAlphaToDefault() {
         binding.settingsButton.setAlpha((float) 0.3);
