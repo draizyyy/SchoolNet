@@ -11,6 +11,7 @@ import androidx.room.PrimaryKey;
 
 import org.jetbrains.annotations.NotNull;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -23,22 +24,23 @@ public class Day {
     @Ignore
     public List<Lesson> LessonsList;
     @ColumnInfo(name = "Date of day")
-    @NotNull
     public String dateOfDay;
-
-    @Ignore
+    public Day(String day_name) {
+        this.day_name = day_name;
+    }
     public Day(@NonNull String day_name, List<Lesson> LessonsList) {
         this.day_name = day_name;
         this.LessonsList = LessonsList;
         this.dateOfDay = getDate(day_name);
     }
-    public Day(@NonNull String day_name, List<Lesson> LessonsList, @NonNull String dateOfDay) {
+    @Ignore
+    public Day(@NonNull String day_name, List<Lesson> LessonsList, String dateOfDay) {
         this.day_name = day_name;
         this.LessonsList = LessonsList;
         this.dateOfDay = dateOfDay;
     }
 
-    private String getDate(String day_name) {
+    public String getDate(String day_name) {
         int numberOfDay = getNumberOfDay(day_name);
         int numberOfToday = Date.getTodayDateNumber();
 

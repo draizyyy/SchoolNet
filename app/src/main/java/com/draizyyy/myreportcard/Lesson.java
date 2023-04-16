@@ -3,6 +3,7 @@ package com.draizyyy.myreportcard;
 import androidx.annotation.NonNull;
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
+import androidx.room.Ignore;
 import androidx.room.PrimaryKey;
 
 import org.jetbrains.annotations.NotNull;
@@ -16,23 +17,27 @@ public class Lesson {
     @NotNull
     public String name;
     @ColumnInfo(name = "Start time")
-    @NotNull
     public String start_time;
     @ColumnInfo(name = "End time")
-    @NotNull
     public String finish_time;
-    @ColumnInfo(name = "grade")
+    @ColumnInfo(name = "Grade")
     public String grade;
-
+    @ColumnInfo(name = "Classroom")
+    public String classroom;
     public Lesson(String name, String start_time, String finish_time) {
-        this(name, start_time, finish_time, "");
+        this(name, start_time, finish_time, "", "");
     }
-
-    public Lesson(@NonNull String name, @NonNull String start_time, @NonNull String finish_time, String grade) {
+    @Ignore
+    public Lesson(@NonNull String name, String start_time, String finish_time, String grade, String classroom) {
         this.name = name;
         this.start_time = start_time;
         this.finish_time = finish_time;
         this.grade = grade;
+        this.classroom = classroom;
+    }
+    @Ignore
+    public Lesson(@NonNull String name, String start_time, String finish_time, String grade) {
+        this(name, start_time, finish_time, grade, "");
     }
 
     public String getName() {

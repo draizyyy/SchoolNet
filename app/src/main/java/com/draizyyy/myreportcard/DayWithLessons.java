@@ -3,6 +3,7 @@ package com.draizyyy.myreportcard;
 import androidx.room.Embedded;
 import androidx.room.Relation;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class DayWithLessons {
