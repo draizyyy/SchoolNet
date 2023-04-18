@@ -6,16 +6,10 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.room.Room;
 
-import com.draizyyy.myreportcard.DayDatabase;
-
 import android.os.Bundle;
 import android.view.View;
-import android.view.Window;
-import android.view.WindowManager;
 
 import com.draizyyy.myreportcard.databinding.ActivityMainBinding;
-import com.draizyyy.myreportcard.databinding.ActivityTimetableBinding;
-
 
 public class MainActivity extends AppCompatActivity {
     private static MainActivity instance;
@@ -39,14 +33,16 @@ public class MainActivity extends AppCompatActivity {
         View view = binding.getRoot();
         setContentView(view);
 
+        NewsActivity newsActivity = new NewsActivity();
         TimetableActivity timetableActivity = new TimetableActivity();
+        GradeActivity gradeActivity = new GradeActivity();
 
         swapFragment(timetableActivity);
         setAlphaToDefault();
         binding.timetableButton.setAlpha(1);
 
         binding.newsButton.setOnClickListener(view1 -> {
-            swapFragment(timetableActivity);
+            swapFragment(newsActivity);
             setAlphaToDefault();
             binding.newsButton.setAlpha(1);
         });
@@ -56,19 +52,19 @@ public class MainActivity extends AppCompatActivity {
             binding.timetableButton.setAlpha(1);
         });
         binding.homeworksButton.setOnClickListener(view1 -> {
-            swapFragment(timetableActivity);
-            setAlphaToDefault();
-            binding.homeworksButton.setAlpha(1);
+//            swapFragment(timetableActivity);
+//            setAlphaToDefault();
+//            binding.homeworksButton.setAlpha(1);
         });
         binding.marksButton.setOnClickListener(view1 -> {
-            swapFragment(timetableActivity);
+            swapFragment(gradeActivity);
             setAlphaToDefault();
             binding.marksButton.setAlpha(1);
         });
         binding.settingsButton.setOnClickListener(view1 -> {
-            swapFragment(timetableActivity);
-            setAlphaToDefault();
-            binding.settingsButton.setAlpha(1);
+//            swapFragment(timetableActivity);
+//            setAlphaToDefault();
+//            binding.settingsButton.setAlpha(1);
         });
 
     }

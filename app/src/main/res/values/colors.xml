@@ -13,4 +13,8 @@
     <color name="lesson_background">@color/white</color>
     <color name="lesson_partition">#6c757d</color>
     <color name="week_background">#EFF1F3</color>
+    <color name="schoolnet_text_color">#364b68</color>
+    <color name="schoolnet_main_color">#3fc1c9</color>
+    <color name="schoolnet_secondly_color">#7CD0DC</color>
+    <color name="schoolnet_hint_color">#587297</color>
 </resources>

@@ -1,5 +1,55 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
-</androidx.constraintlayout.widget.ConstraintLayout>
+    android:layout_height="wrap_content"
+    android:layout_marginTop="7dp"
+    android:layout_marginBottom="7dp"
+    android:layout_marginRight="13dp"
+    android:layout_marginLeft="13dp"
+    android:orientation="vertical"
+    android:background="@drawable/lesson_style"
+    android:elevation="2dp">
+    <RelativeLayout
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="5dp"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/day_and_date"
+        android:orientation="vertical"
+        tools:context=".TimetableActivity">
+        <TextView
+            android:layout_marginStart="10dp"
+            android:id="@+id/author_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/main_text_color"
+            android:text="Администрация"
+            android:textSize="17sp"
+            android:layout_gravity="center_horizontal" >
+        </TextView>
+        <TextView
+            android:id="@+id/date_of_post"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="10dp"
+            android:text="19 января"
+            android:textSize="17sp"
+            android:textColor="@color/main_text_color"
+            android:layout_gravity="center_horizontal"
+            android:layout_alignBottom="@+id/author_name"
+            android:layout_alignParentEnd="true" >
+        </TextView>
+    </RelativeLayout>
+    <TextView
+        android:id="@+id/text_of_post"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/firstly_text_color"
+        android:paddingStart="10dp"
+        android:layout_marginBottom="13dp"
+        android:textSize="14sp"
+        android:paddingEnd="10dp"
+        android:text="Прочитать параграфы 25 и 26, ответить на вопросы 2-7 на с. 9 и 2-6 на с. 20. Просмотреть видео-урок по ссылке: https://youtu.be/hT8FaDbYwTY (можно начать смотреть с 35 минуты 40 секунды)" >
+    </TextView>
+</LinearLayout>
