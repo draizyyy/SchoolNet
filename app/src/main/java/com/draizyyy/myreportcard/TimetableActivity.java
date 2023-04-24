@@ -28,7 +28,7 @@ import com.draizyyy.myreportcard.databinding.TimetableDayBinding;
 public class TimetableActivity extends Fragment {
     private final List<Lesson> lessonList = new ArrayList<>();
     private final List<Day> dayList = new ArrayList<>();
-    Lesson lesson = new Lesson("Русский язык", "08:45", "09:30", "5", "215", "Пролетарский проспект", "Лицей 1511", "Андреев М.Ф.");
+    Lesson lesson = new Lesson("Литература", "08:45", "09:30", "5", "215", "Пролетарский проспект", "Лицей 1511", "Андреев М.Ф.", "Прочитать \"Бэлу\", подготовить ответы с опорой на текст на вопросы из ДЗ: закладки/выписанные на листок с заданием номера страниц. Учим и сдаём второе из пяти стихотворений Лермонтова. И ещё много много много много много много много много много много много много много много много много много много много много текста");
     Lesson lesson1 = new Lesson("Английский язык", "09:50", "10:35");
     Lesson lesson2 = new Lesson("Информатика", "10:50", "11:35","4", "123", "", "", "Янков В.Ю.");
     Lesson lesson3 = new Lesson("Алгебра", "11:45", "12:30");
@@ -114,9 +114,12 @@ public class TimetableActivity extends Fragment {
         Objects.requireNonNull(DayRecyclerViewItem.getLayoutManager()).scrollToPosition(Date.getTodayDateNumber());
     }
     private Day getDay() {
+        //нужно добавить вот эту штуку во все остальные классы где это нужно
         ArrayList<Lesson> arrayList = new ArrayList<>();
+        ArrayList<Bundle> bundleList = new ArrayList<>();
         for (int i = 0; i < 2; ++i) {
             arrayList.add(new Lesson("0", "0", "test"));
+            bundleList.add(new Bundle());
         }
         return new Day("Тестовый день", arrayList);
     }

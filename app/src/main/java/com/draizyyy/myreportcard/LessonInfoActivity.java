@@ -63,7 +63,7 @@ public class LessonInfoActivity extends Fragment {
 
             if (homework.equals(""))  {
                 binding.homeworkInv.setVisibility(View.GONE);
-                binding.homework.setVisibility(View.GONE);
+                binding.homeworkFull.setVisibility(View.GONE);
             }
 
             binding.homework.setMovementMethod(new ScrollingMovementMethod());
