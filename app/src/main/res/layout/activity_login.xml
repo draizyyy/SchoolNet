@@ -46,6 +46,8 @@
         </TextView>
         <EditText
             android:hint="Логин"
+            android:imeOptions="actionNext"
+            android:singleLine="true"
             android:paddingStart="15dp"
             android:paddingEnd="15dp"
             android:background="@drawable/lesson_style"
@@ -61,6 +63,7 @@
             >
         </EditText>
         <EditText
+            android:imeOptions="actionDone"
             android:paddingStart="15dp"
             android:paddingEnd="15dp"
             android:id="@+id/login_password"

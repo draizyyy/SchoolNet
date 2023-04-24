@@ -49,6 +49,7 @@ public class MyDayAdapter extends RecyclerView.Adapter<MyDayAdapter.DayViewHolde
         layoutManager.setInitialPrefetchItemCount(day.getLessonsList().size());
 
         MyLessonAdapter myLessonAdapter = new MyLessonAdapter(day.getLessonsList());
+        RecyclerView recyclerView = dayViewHolder.LessonRecyclerView;
         dayViewHolder.LessonRecyclerView.setLayoutManager(layoutManager);
         dayViewHolder.LessonRecyclerView.setAdapter(myLessonAdapter);
         dayViewHolder.LessonRecyclerView.setRecycledViewPool(viewPool);

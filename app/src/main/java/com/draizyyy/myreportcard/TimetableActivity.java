@@ -28,14 +28,14 @@ import com.draizyyy.myreportcard.databinding.TimetableDayBinding;
 public class TimetableActivity extends Fragment {
     private final List<Lesson> lessonList = new ArrayList<>();
     private final List<Day> dayList = new ArrayList<>();
-    Lesson lesson = new Lesson("Русский язык", "08:45", "09:30", "5");
+    Lesson lesson = new Lesson("Русский язык", "08:45", "09:30", "5", "215", "Пролетарский проспект", "Лицей 1511", "Андреев М.Ф.");
     Lesson lesson1 = new Lesson("Английский язык", "09:50", "10:35");
-    Lesson lesson2 = new Lesson("Информатика", "10:50", "11:35","3");
+    Lesson lesson2 = new Lesson("Информатика", "10:50", "11:35","4", "123", "", "", "Янков В.Ю.");
     Lesson lesson3 = new Lesson("Алгебра", "11:45", "12:30");
-    Lesson lesson4 = new Lesson("Алгебра", "12:45", "13:30");
-    Lesson lesson5 = new Lesson("Химия", "13:45", "14:30", "4");
-    Lesson lesson6 = new Lesson("Обществознание", "14:35", "15:35");
-    Lesson lesson7 = new Lesson("Информатика", "15:45", "16:30", "5");
+    Lesson lesson4 = new Lesson("Алгебра", "12:45", "13:30", "5", "21А", "Кленовый Бульвар", "Лицей 1523", "Алексеева Н.И.", "А-9, &22, № 22.6, 22.8, 22.14, 22.16, 22.20");
+    Lesson lesson5 = new Lesson("Химия", "13:45", "14:30", "4", "", "", "", "", "Знать определения.");
+    Lesson lesson6 = new Lesson("Обществознание", "14:35", "15:35", "3","37", "Аоаоаоа", "Лицей 1123", "Никитин А.П.", "Прочитать §16, ответить на вопросы на стр. 64-65.");
+    Lesson lesson7 = new Lesson("Информатика", "15:45", "16:30", "5", "52", "", "Лицей 1523");
     Lesson lesson8 = new Lesson("Основы безопаснос...", "16:45", "17:30");
 
     Day day0 = new Day("Воскресенье", new ArrayList<>(), "12 марта");

@@ -24,20 +24,48 @@ public class Lesson {
     public String grade;
     @ColumnInfo(name = "Classroom")
     public String classroom;
-    public Lesson(String name, String start_time, String finish_time) {
-        this(name, start_time, finish_time, "", "");
+    @ColumnInfo(name = "Address")
+    public String address;
+    @ColumnInfo(name = "School name")
+    public String schoolName;
+    @ColumnInfo(name = "Teacher")
+    public String teacher;
+    @ColumnInfo(name = "Homework")
+    public String homework;
+    public Lesson(@NonNull String name, String start_time, String finish_time) {
+        this(name, start_time, finish_time, "", "", "", "", "", "");
+    }
+    @Ignore
+    public Lesson(@NonNull String name, String start_time, String finish_time, String grade) {
+        this(name, start_time, finish_time, grade, "", "", "", "", "");
     }
     @Ignore
     public Lesson(@NonNull String name, String start_time, String finish_time, String grade, String classroom) {
+        this(name, start_time, finish_time, grade, classroom, "", "", "", "");
+    }
+    @Ignore
+    public Lesson(@NonNull String name, String start_time, String finish_time, String grade, String classroom, String address) {
+        this(name, start_time, finish_time, grade, classroom, address, "", "", "");
+    }
+    @Ignore
+    public Lesson(@NonNull String name, String start_time, String finish_time, String grade, String classroom, String address, String schoolName) {
+        this(name, start_time, finish_time, grade, classroom, address, schoolName, "", "");
+    }
+    @Ignore
+    public Lesson(@NonNull String name, String start_time, String finish_time, String grade, String classroom, String address, String schoolName, String teacher) {
+        this(name, start_time, finish_time, grade, classroom, address, schoolName, teacher, "");
+    }
+    @Ignore
+    public Lesson(@NonNull String name, String start_time, String finish_time, String grade, String classroom, String address, String schoolName, String teacher, String homework) {
         this.name = name;
         this.start_time = start_time;
         this.finish_time = finish_time;
         this.grade = grade;
+        this.address = address;
+        this.schoolName = schoolName;
+        this.teacher = teacher;
         this.classroom = classroom;
-    }
-    @Ignore
-    public Lesson(@NonNull String name, String start_time, String finish_time, String grade) {
-        this(name, start_time, finish_time, grade, "");
+        this.homework = homework;
     }
 
     public String getName() {
