@@ -4,7 +4,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
-import androidx.room.Room;
 
 import android.os.Bundle;
 import android.view.View;
@@ -12,18 +11,16 @@ import android.view.View;
 import com.draizyyy.myreportcard.databinding.ActivityMainBinding;
 
 public class MainActivity extends AppCompatActivity {
-    private static MainActivity instance;
-    DayDatabase db;
     private ActivityMainBinding binding;
     private final FragmentManager fragmentManager = getSupportFragmentManager();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        instance = this;
-        db = Room.databaseBuilder(getApplicationContext(), DayDatabase.class, "data-database")
-                .allowMainThreadQueries()
-                .build();
+
+        TimetableActivity timetableActivity = new TimetableActivity();
+        timetableActivity.initData();
+
         binding = ActivityMainBinding.inflate(getLayoutInflater());
 
 //        supportRequestWindowFeature(Window.FEATURE_NO_TITLE);
@@ -34,7 +31,6 @@ public class MainActivity extends AppCompatActivity {
         setContentView(view);
 
         NewsActivity newsActivity = new NewsActivity();
-        TimetableActivity timetableActivity = new TimetableActivity();
         GradeActivity gradeActivity = new GradeActivity();
 
         swapFragment(timetableActivity);
@@ -66,10 +62,6 @@ public class MainActivity extends AppCompatActivity {
 //            setAlphaToDefault();
 //            binding.settingsButton.setAlpha(1);
         });
-
-    }
-    public DayDatabase getDatabaseInstance() {
-        return db;
     }
     private void setAlphaToDefault() {
         binding.settingsButton.setAlpha((float) 0.3);
@@ -81,7 +73,6 @@ public class MainActivity extends AppCompatActivity {
     private void swapFragment(Fragment fragment) {
         FragmentTransaction transaction = fragmentManager.beginTransaction();
         transaction.replace(R.id.placeholder, fragment);
-
         transaction.commit();
     }
 }

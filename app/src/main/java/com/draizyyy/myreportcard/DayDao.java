@@ -1,6 +1,7 @@
 package com.draizyyy.myreportcard;
 
-import androidx.lifecycle.LiveData;
+import android.util.Log;
+
 import androidx.room.Dao;
 import androidx.room.Delete;
 import androidx.room.Insert;
@@ -8,39 +9,168 @@ import androidx.room.Query;
 import androidx.room.Transaction;
 import androidx.room.Update;
 
+import java.lang.invoke.MethodHandles;
 import java.util.ArrayList;
 import java.util.List;
 
 @Dao
-public interface DayDao {
-    @Query("SELECT * FROM Day WHERE id =:id")
-    List<DayWithLessons> loadDayBy(int id);
-    @Query("SELECT * FROM Day WHERE id =:id")
-    DayWithLessons getDayBy(int id);
-    @Transaction
-    @Query("SELECT * FROM Day")
-    List<DayWithLessons> loadDialogBy();
-    // WHERE id = :id"
-    @Transaction
-    @Query("SELECT * FROM Day")
-    DayWithLessons getDialogBy();
+public abstract class DayDao {
+//    public void insertAll(List<User> users) {
+//        for(User user:users) {
+//            if(user.pets != null) {
+//                insertPetsForUser(user, user.pets);
+//            }
+//        }
+//        _insertAll(users);
+//    }
+//
+//    private void insertPetsForUser(User user, List<Pet> pets){
+//
+//        for(Pet pet : pets){
+//            pet.setUserId(user.getId());
+//        }
+//
+//        _insertAll(pets);
+//    }
+//
+//    public List<User> getUsersWithPetsEagerlyLoaded() {
+//        List<UserWithPets> usersWithPets = _loadUsersWithPets();
+//        List<User> users = new ArrayList<User>(usersWithPets.size())
+//        for(UserWithPets userWithPets: usersWithPets) {
+//            userWithPets.user.pets = userWithPets.pets;
+//            users.add(userWithPets.user);
+//        }
+//        return users;
+//    }
+//
+//
+//    //package private methods so that wrapper methods are used, Room allows for this, but not private methods, hence the underscores to put people off using them :)
+//    @Insert
+//    abstract void _insertAll(List<Pet> pets);
+//
+//    @Insert
+//    abstract void _insertAll(List<User> users);
+//
+//    @Query("SELECT * FROM User")
+//    abstract List<UserWithPets> _loadUsersWithPets();
+//    List<DayWithLessons> getALl();
+//    @Query("SELECT * FROM Day where id = :id")
+//    Day getById(int id);
+//    @Delete
+//    void delete(DayWithLessons dayWithLessons);
+//    @Insert
+//    void save(DayWithLessons dayWithLessons) {
+//        for ()
+//    }
+//    @Insert
+//    void saveAll(List<DayWithLessons> dayWithLessonsList);
+//    @Update
+//    void update(DayWithLessons dayWithLessons);
+//
+//    public void insertAll(List<Day> days) {
+//        for(Day day: days) {
+//            if(day.LessonsList != null) {
+//                insertLessonsForDay(day);
+//            }
+//        }
+//        insertAll(days);
+//    }
+//
+//    private void insertLessonsForDay(Day day){
+//        List<Lesson> lessons = day.LessonsList;
+//
+//        for(Lesson lesson : lessons){
+//            lesson.id = day.id;
+//        }
+//
+//        insertAllLessons(lessons);
+//    }
+//
+//    public List<Day> getDayWithLessonsLoaded() {
+//        List<DayWithLessons> daysWithLessons = loadDayWithLessons();
+//        List<Day> days = new ArrayList<Day>(daysWithLessons.size());
+//        for(DayWithLessons dayWithLessons: daysWithLessons) {
+//            dayWithLessons.day.LessonsList = dayWithLessons.lessons;
+//            days.add(dayWithLessons.day);
+//        }
+//        return days;
+//    }
+//    @Insert
+//    abstract void insertAllLessons(List<Lesson> lessons);
+//
+//    @Insert
+//    abstract void insertAllDays(List<Day> users);
+//
 //    @Query("SELECT * FROM Day")
-//    public List<DayWithLessons> loadDayWithLessons();
-//    @Query("SELECT * FROM Lesson WHERE  =:dayId")
-//    List<Lesson> getLessonList(int dayId);
+//    abstract List<DayWithLessons> loadDayWithLessons();
+
+//    @Insert
+//    void insertLessonList(List<Lesson> lessons);
+
+
+    //AAAAAAAAAAAA
+    @Query("SELECT * FROM Day")
+    public abstract List<Day> loadAllDays();
+
+    @Query("SELECT * FROM Lesson")
+    public abstract List<Lesson> loadAllLessons();
+
+    @Query("SELECT * FROM Lesson WHERE dayId = :dayId")
+    public abstract List<Lesson> loadAllLessonsById(int dayId);
+
+    @Transaction
+    public List<Day> getAll() {
+        Log.i("MY APP", "done");
+        List<Lesson> test = loadAllLessons();
+        Log.i("MY APP", "loadAllLessons size: " + test.size());
+        for (Lesson lesson: test) {
+            System.out.println(lesson.name + " id: " + lesson.id + " dayId: " + lesson.dayId);
+        }
+        List<Day> days = loadAllDays();
+        Log.i("MY APP", "loaded all days");
+        Log.i("MY APP", "day.size: " + (days.size()));
+        for (Day day: days) {
+            day.LessonsList = loadAllLessonsById(day.id);
+            Log.i("MY APP", "lessonlist dao size:" + loadAllLessonsById(day.id).size());
+        }
+        Log.i("MY APP", "loaded all lessons by id");
+        return days;
+    }
+
+//    @Transaction
+//    public void insertAllLessons(List<Lesson> lessons) {
+//        for (Lesson lesson: lessons) {
+//            insertLesson(lesson);
+//        }
+//    }
+    @Transaction
+    public void insertAllDays(List<Day> days) {
+        Log.i("MY APP", "inserting days...");
+        Log.i("MY APP", "dl.size: " + days.size());
+        for (Day day: days) {
+            insertDay(day);
+            int id = selectLastDayId();
+            Log.i("MY APP", "dayId: " + day.id);
+            for (Lesson lesson: day.LessonsList) {
+                Log.i("MY APP", lesson.name);
+                lesson.dayId = id;
+                System.out.println("загрузка в бд: " + lesson.name + " dayId: " + lesson.dayId);
+                insertLesson(lesson);
+            }
+        }
+    }
+
     @Insert
-    void insertAll(Day... days);
-
-    @Delete
-    void delete(Day day);
-
+    public abstract void insertLesson(Lesson lesson);
     @Insert
-    void save(Day day);
+    public abstract void insertDay(Day day);
 
-    @Insert
-    void insertLessonList(List<Lesson> lessons);
+    @Query("SELECT id FROM Day WHERE id = (SELECT MAX(id) FROM Day)")
+    public abstract int selectLastDayId();
 
-    @Update
-    void update(Day day);
+    @Query("DELETE FROM Lesson")
+    public abstract void deleteAllLessons();
 
+    @Query("DELETE FROM Day")
+    public abstract void deleteAllDays();
 }

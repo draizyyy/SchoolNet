@@ -16,7 +16,7 @@ import java.util.List;
 
 @Entity
 public class Day {
-    @PrimaryKey
+    @PrimaryKey(autoGenerate = true)
     public int id;
     @ColumnInfo(name = "Day name")
     @NotNull

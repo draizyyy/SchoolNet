@@ -10,7 +10,7 @@ import org.jetbrains.annotations.NotNull;
 
 @Entity
 public class Lesson {
-    @PrimaryKey
+    @PrimaryKey(autoGenerate = true)
     public int id;
     public int dayId;
     @ColumnInfo(name = "Lesson name")

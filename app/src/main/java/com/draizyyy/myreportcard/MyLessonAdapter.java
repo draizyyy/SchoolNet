@@ -34,11 +34,9 @@ import java.util.ListIterator;
 
 public class MyLessonAdapter extends RecyclerView.Adapter<MyLessonAdapter.MyViewHolder> {
     private final List<Lesson> list;
-    private final ArrayList<Bundle> bundleList = new ArrayList<>();
     public MyLessonAdapter(List<Lesson> list) {
         this.list = list;
     }
-
     @NonNull
     @Override
     public MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
@@ -47,15 +45,6 @@ public class MyLessonAdapter extends RecyclerView.Adapter<MyLessonAdapter.MyView
                 parent,
                 false
         );
-        bundleList.add(new Bundle());
-        Bundle bundle = bundleList.get(bundleList.size() - 1);
-        view.setOnClickListener(view1 -> {
-            AppCompatActivity activity = (AppCompatActivity) view1.getContext();
-            LessonInfoActivity lessonInfoFragment = new LessonInfoActivity();
-            lessonInfoFragment.setArguments(bundle);
-            FragmentTransaction transaction = activity.getSupportFragmentManager().beginTransaction().setCustomAnimations(R.anim.open_fragment_anim, R.anim.close_fragment_anim, R.anim.open_fragment_anim, R.anim.close_fragment_anim);
-            transaction.replace(R.id.timetable_activity, lessonInfoFragment).addToBackStack("timetableFragment").commit();
-        });
 
         return new MyViewHolder(view);
     }
@@ -64,22 +53,26 @@ public class MyLessonAdapter extends RecyclerView.Adapter<MyLessonAdapter.MyView
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
         final Lesson lesson = list.get(position);
+        final View view = holder.view;
+        view.setOnClickListener(view1 -> {
+            Bundle bundle = new Bundle();
+            bundle.putString("name", lesson.name);
+            bundle.putString("address", lesson.address);
+            bundle.putString("schoolName", lesson.schoolName);
+            bundle.putString("homework", lesson.homework);
+            bundle.putString("classroom", lesson.classroom);
+            bundle.putString("teacher", lesson.teacher);
+            AppCompatActivity activity = (AppCompatActivity) view1.getContext();
+            LessonInfoActivity lessonInfoFragment = new LessonInfoActivity();
+            lessonInfoFragment.setArguments(bundle);
+            FragmentTransaction transaction = activity.getSupportFragmentManager().beginTransaction().setCustomAnimations(R.anim.open_fragment_anim, R.anim.close_fragment_anim, R.anim.open_fragment_anim, R.anim.close_fragment_anim);
+            transaction.replace(R.id.timetable_activity, lessonInfoFragment).addToBackStack("timetableFragment").commit();
+        });
         holder.name.setText(lesson.getName());
         holder.start_time.setText(String.valueOf(lesson.getStart_time()));
         holder.finish_time.setText(lesson.getFinish_time());
         holder.grade.setText(lesson.getGrade());
-        Log.v("MY APP", "запрашиваемый номер элемента: " + (bundleList.size() - 1) + ", всего элементов в листе:  " + bundleList.size());
-        if (bundleList.size() > 0) {
-            bundleList.get(bundleList.size() - 1).putString("name", lesson.name);
-            bundleList.get(bundleList.size() - 1).putString("start_time", lesson.start_time);
-            bundleList.get(bundleList.size() - 1).putString("finish_time", lesson.finish_time);
-            bundleList.get(bundleList.size() - 1).putString("grade", lesson.grade);
-            bundleList.get(bundleList.size() - 1).putString("classroom", lesson.classroom);
-            bundleList.get(bundleList.size() - 1).putString("address", lesson.address);
-            bundleList.get(bundleList.size() - 1).putString("schoolName", lesson.schoolName);
-            bundleList.get(bundleList.size() - 1).putString("teacher", lesson.teacher);
-            bundleList.get(bundleList.size() - 1).putString("homework", lesson.homework);
-        }
+//        Log.v("MY APP", "запрашиваемый номер элемента: " + (bundleList.size() - 1) + ", всего элементов в листе:  " + bundleList.size());
     }
     @Override
     public int getItemCount() {
@@ -91,9 +84,11 @@ public class MyLessonAdapter extends RecyclerView.Adapter<MyLessonAdapter.MyView
         private final TextView start_time;
         private final TextView finish_time;
         private final TextView grade;
+        private final View view;
 
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
+            view = itemView;
             name = itemView.findViewById(R.id.name_of_lesson);
             start_time = itemView.findViewById(R.id.start_time_of_lesson);
             finish_time = itemView.findViewById(R.id.finish_time_of_lesson);
