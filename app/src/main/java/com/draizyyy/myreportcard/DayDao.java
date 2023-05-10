@@ -109,6 +109,10 @@ public abstract class DayDao {
 
 
     //AAAAAAAAAAAA
+    @Query("SELECT DISTINCT `Lesson name` FROM Lesson")
+    public abstract List<String> getAllLessonNames();
+    @Query("SELECT grade FROM Lesson WHERE `Lesson name` = :name")
+    public abstract List<String> getAllGradesForLesson(String name);
     @Query("SELECT * FROM Day")
     public abstract List<Day> loadAllDays();
 

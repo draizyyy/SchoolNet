@@ -1,5 +1,9 @@
 package com.draizyyy.myreportcard;
 
+import android.content.Context;
+import android.os.VibrationEffect;
+import android.os.Vibrator;
+
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
@@ -21,6 +25,9 @@ public class MainActivity extends AppCompatActivity {
         TimetableActivity timetableActivity = new TimetableActivity();
         timetableActivity.initData();
 
+        GradeActivity gradeActivity = new GradeActivity();
+        gradeActivity.initData();
+
         binding = ActivityMainBinding.inflate(getLayoutInflater());
 
 //        supportRequestWindowFeature(Window.FEATURE_NO_TITLE);
@@ -31,7 +38,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(view);
 
         NewsActivity newsActivity = new NewsActivity();
-        GradeActivity gradeActivity = new GradeActivity();
+
 
         swapFragment(timetableActivity);
         setAlphaToDefault();
@@ -74,5 +81,8 @@ public class MainActivity extends AppCompatActivity {
         FragmentTransaction transaction = fragmentManager.beginTransaction();
         transaction.replace(R.id.placeholder, fragment);
         transaction.commit();
+
+        Vibrator v = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
+        v.vibrate(VibrationEffect.createOneShot(200, VibrationEffect.DEFAULT_AMPLITUDE));
     }
 }

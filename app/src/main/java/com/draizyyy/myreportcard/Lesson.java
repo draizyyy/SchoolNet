@@ -99,6 +99,5 @@ public class Lesson {
     public void setStart_time(@NonNull String start_time) {
         this.start_time = start_time;
     }
-
-
 }
+

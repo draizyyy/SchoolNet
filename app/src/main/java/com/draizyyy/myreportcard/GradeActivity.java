@@ -38,7 +38,6 @@ public class GradeActivity extends Fragment {
         super.onCreate(savedInstanceState);
         gradesBinding = gradesBinding.inflate(inflater, container, false);
 
-        initData();
         setupUI();
 
         return gradesBinding.getRoot();
@@ -58,18 +57,15 @@ public class GradeActivity extends Fragment {
 //        });
     }
 
-    private void initData() {
-        gradesList.add(new Grade("Математика", 4.81));
-        gradesList.add(new Grade("Русский язык", 4.23));
-        gradesList.add(new Grade("Физика", 3.61));
-        gradesList.add(new Grade("Математика", 4.81));
-        gradesList.add(new Grade("Русский язык", 4.23));
-        gradesList.add(new Grade("Физика", 3.61));
-        gradesList.add(new Grade("Математика", 4.81));
-        gradesList.add(new Grade("Русский язык", 4.23));
-        gradesList.add(new Grade("Физика", 3.61));
-        gradesList.add(new Grade("Математика", 4.81));
-        gradesList.add(new Grade("Русский язык", 4.23));
-        gradesList.add(new Grade("Физика", 3.61));
+    public void initData() {
+//        gradesList.add(new Grade("Математика", 4.81));
+        new Thread(() -> {
+            DayDao dayDao = App.getDatabase().dayDao();
+            List<String> names = dayDao.getAllLessonNames();
+            for (String name: names) {
+                List<String> grades = dayDao.getAllGradesForLesson(name);
+                gradesList.add(new Grade(name, grades));
+            }
+        }).start();
     }
 }
