@@ -13,6 +13,7 @@ import android.os.Bundle;
 import android.view.View;
 
 import com.draizyyy.myreportcard.databinding.ActivityMainBinding;
+import com.google.firebase.auth.FirebaseAuth;
 
 public class MainActivity extends AppCompatActivity {
     private ActivityMainBinding binding;
@@ -39,6 +40,7 @@ public class MainActivity extends AppCompatActivity {
 
         NewsActivity newsActivity = new NewsActivity();
 
+        AccountActivity accountActivity = new AccountActivity();
 
         swapFragment(timetableActivity);
         setAlphaToDefault();
@@ -65,9 +67,9 @@ public class MainActivity extends AppCompatActivity {
             binding.marksButton.setAlpha(1);
         });
         binding.settingsButton.setOnClickListener(view1 -> {
-//            swapFragment(timetableActivity);
-//            setAlphaToDefault();
-//            binding.settingsButton.setAlpha(1);
+            swapFragment(accountActivity);
+            setAlphaToDefault();
+            binding.settingsButton.setAlpha(1);
         });
     }
     private void setAlphaToDefault() {

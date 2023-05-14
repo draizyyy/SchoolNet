@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "170524673749",
+    "project_id": "schoolnet-94110",
+    "storage_bucket": "schoolnet-94110.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:170524673749:android:61b84b390d20fe0655045c",
+        "android_client_info": {
+          "package_name": "com.draizyyy.myreportcard"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "170524673749-hfocrt83536913vcnuckbscl51vdfvo1.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCN7RUNUfp9NlBUqdghAKt9UuiSEKXdDAY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "170524673749-hfocrt83536913vcnuckbscl51vdfvo1.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
