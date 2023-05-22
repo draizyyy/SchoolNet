@@ -6,17 +6,17 @@ import androidx.room.PrimaryKey;
 import java.util.List;
 import java.util.Objects;
 
-@Entity
+//@Entity
 public class Grade {
-    @PrimaryKey
+//    @PrimaryKey
     public int id;
     public String lesson_name;
-    public double grade;
+    public Double grade;
     public Grade(String lesson_name, List<String> grades) {
         this.lesson_name = lesson_name;
         this.grade = countGrade(grades);
     }
-    private double countGrade(List<String> grades) {
+    private Double countGrade(List<String> grades) {
         int amountOfGrades = 0;
         int sumOfGrades = 0;
         for (String grade: grades) {
@@ -25,6 +25,10 @@ public class Grade {
                 sumOfGrades += Integer.parseInt(grade);
             }
         }
-        return (double) sumOfGrades/amountOfGrades;
+        Double grade = (double) sumOfGrades/amountOfGrades;
+        if (grade == 0) {
+            grade = null;
+        }
+        return grade;
     }
 }

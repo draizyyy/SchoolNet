@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:paddingVertical="10dp"
+    android:layout_marginTop="5dp"
+    android:layout_marginBottom="5dp"
+    android:layout_marginRight="3dp"
+    android:layout_marginLeft="3dp"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:background="@drawable/lesson_style"
+    android:elevation="2dp">
+    <TextView
+        android:id="@+id/homework_name_of_lesson"
+        android:textColor="@color/firstly_text_color"
+        android:layout_marginBottom="10dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:text="Русский язык"
+        android:textSize="20sp">
+    </TextView>
+    <LinearLayout
+        android:layout_marginStart="15dp"
+        android:layout_marginEnd="15dp"
+        android:layout_marginBottom="5dp"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        >
+        <CheckBox
+            android:id="@+id/homework_check_box"
+            android:scaleX="1.5"
+            android:scaleY="1.5"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_gravity="center_vertical">
+        </CheckBox>
+        <TextView
+            android:id="@+id/text_of_homework"
+            android:textColor="@color/firstly_text_color"
+            android:layout_marginStart="20dp"
+            tools:text="Прочитать параграфы 25 и 26, ответить на вопросы 2-7 на с. 9 и 2-6 на с. 20. Просмотреть видео-урок по ссылке: https://youtube.com/... (можно начать смотреть с 35 минуты 40 секунды)"
+            android:textSize="14sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+        </TextView>
+    </LinearLayout>
+</LinearLayout>

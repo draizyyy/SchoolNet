@@ -6,264 +6,264 @@
     android:id="@+id/lesson_info_fragment"
     android:background="@color/week_background"
     android:orientation="vertical">
-    <LinearLayout
-        android:layout_marginTop="10dp"
-        android:layout_marginStart="10dp"
-        android:layout_marginEnd="10dp"
-        android:orientation="vertical"
+    <ScrollView
         android:layout_width="match_parent"
-        android:background="@color/week_background"
-        android:layout_height="wrap_content" >
-        <TextView
-            android:layout_marginTop="3dp"
-            android:layout_marginBottom="3dp"
-            android:layout_marginEnd="3dp"
-            android:layout_marginStart="3dp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:gravity="center_horizontal"
-            android:layout_gravity="center_horizontal"
-            android:textSize="16sp"
-            android:id="@+id/name_inv"
-            android:text="Предмет"
-            android:background="@color/week_background">
-        </TextView>
-        <TextView
-            android:textColor="@color/main_text_color"
-            android:layout_marginTop="3dp"
-            android:layout_marginBottom="3dp"
-            android:layout_marginEnd="3dp"
-            android:layout_marginStart="3dp"
-            android:padding="10dp"
-            android:background="@drawable/lesson_style"
-            android:layout_width="match_parent"
-            android:gravity="center_horizontal"
-            android:layout_height="wrap_content"
-            android:id="@+id/new_name_of_lesson"
-            tools:text="Алгебра"
-            android:transitionName="mewSharedItemView"
-            android:text="Алгебра"
-            android:elevation="2dp"
-            android:textSize="25sp">
-        </TextView>
-<!--        <TextView-->
-<!--            android:layout_marginTop="3dp"-->
-<!--            android:layout_marginBottom="3dp"-->
-<!--            android:layout_marginEnd="3dp"-->
-<!--            android:layout_marginStart="3dp"-->
-<!--            android:layout_width="wrap_content"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:gravity="center_horizontal"-->
-<!--            android:layout_gravity="center_horizontal"-->
-<!--            android:textSize="16sp"-->
-<!--            android:text="Дата урока"-->
-<!--            android:background="@color/week_background">-->
-<!--        </TextView>-->
-<!--        <LinearLayout-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:gravity="center_horizontal"-->
-<!--            android:orientation="vertical"-->
-<!--            android:layout_marginTop="3dp"-->
-<!--            android:layout_marginBottom="3dp"-->
-<!--            android:layout_marginEnd="3dp"-->
-<!--            android:layout_marginStart="3dp"-->
-<!--            android:padding="10dp"-->
-<!--            android:elevation="2dp"-->
-<!--            android:background="@drawable/lesson_style">-->
-<!--            <LinearLayout-->
-<!--                android:layout_marginTop="10dp"-->
-<!--                android:layout_marginBottom="10dp"-->
-<!--                android:id="@+id/day"-->
-<!--                android:layout_width="wrap_content"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:orientation="horizontal">-->
-<!--                <TextView-->
-<!--                    android:id="@+id/day_of_the_week"-->
-<!--                    android:layout_width="wrap_content"-->
-<!--                    android:layout_height="wrap_content"-->
-<!--                    android:textSize="20sp"-->
-<!--                    android:text="Пятница,"-->
-<!--                    android:layout_marginEnd="10dp">-->
-<!--                </TextView>-->
-<!--                <TextView-->
-<!--                    android:id="@+id/date"-->
-<!--                    android:layout_width="wrap_content"-->
-<!--                    android:layout_height="wrap_content"-->
-<!--                    android:textSize="20sp"-->
-<!--                    android:text="24 февраля">-->
-<!--                </TextView>-->
-<!--            </LinearLayout>-->
-<!--            <TextView-->
-<!--                android:layout_width="wrap_content"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:text="17:30 - 20:00"-->
-<!--                android:textSize="20sp"-->
-<!--                android:layout_marginBottom="10dp">-->
-<!--            </TextView>-->
-<!--        </LinearLayout>-->
-        <TextView
-            android:id="@+id/teacherInv"
-            android:layout_marginTop="3dp"
-            android:layout_marginBottom="3dp"
-            android:layout_marginEnd="3dp"
-            android:layout_marginStart="3dp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:gravity="center_horizontal"
-            android:layout_gravity="center_horizontal"
-            android:textSize="16sp"
-            android:text="Учитель"
-            android:background="@color/week_background">
-        </TextView>
-        <TextView
-            android:textColor="@color/main_text_color"
-            android:layout_weight="1"
-            android:layout_marginTop="3dp"
-            android:layout_marginBottom="3dp"
-            android:layout_marginEnd="3dp"
-            android:layout_marginStart="3dp"
-            android:padding="10dp"
-            android:background="@drawable/lesson_style"
-            android:layout_width="match_parent"
-            android:gravity="center_horizontal"
-            android:layout_height="wrap_content"
-            android:id="@+id/teacher"
-            android:text="Андреев М.Ф."
-            android:elevation="2dp"
-            android:textSize="20sp">
-        </TextView>
-        <TextView
-            android:layout_marginTop="3dp"
-            android:layout_marginBottom="3dp"
-            android:layout_marginEnd="3dp"
-            android:layout_marginStart="3dp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:gravity="center_horizontal"
-            android:layout_gravity="center_horizontal"
-            android:textSize="16sp"
-            android:id="@+id/addressInv"
-            android:text="Адрес учебного заведения"
-            android:background="@color/week_background">
-        </TextView>
+        android:layout_height="wrap_content">
         <LinearLayout
-            android:id="@+id/addressFull"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center_horizontal"
+            android:layout_marginTop="10dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
             android:orientation="vertical"
-            android:layout_marginTop="3dp"
-            android:layout_marginBottom="3dp"
-            android:layout_marginEnd="3dp"
-            android:layout_marginStart="3dp"
-            android:padding="10dp"
-            android:elevation="2dp"
-            android:background="@drawable/lesson_style">
-            <LinearLayout
-                android:layout_marginTop="10dp"
-                android:layout_marginBottom="10dp"
-                android:id="@+id/where"
+            android:layout_width="match_parent"
+            android:background="@color/week_background"
+            android:layout_height="wrap_content" >
+            <TextView
+                android:layout_marginTop="3dp"
+                android:layout_marginBottom="3dp"
+                android:layout_marginEnd="3dp"
+                android:layout_marginStart="3dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal">
-                <TextView
-                    android:textColor="@color/main_text_color"
-                    android:id="@+id/address"
-                    android:layout_weight="1"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textSize="20sp"
-                    android:text="Пролетарский пр., 6,"
-                    android:layout_marginEnd="10dp">
-                </TextView>
-                <TextView
-                    android:textColor="@color/main_text_color"
-                    android:layout_weight="1"
-                    android:id="@+id/school"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textSize="20sp"
-                    android:text="Лицей 1511">
-                </TextView>
-            </LinearLayout>
-        </LinearLayout>
-        <TextView
-            android:layout_marginTop="3dp"
-            android:layout_marginBottom="3dp"
-            android:layout_marginEnd="3dp"
-            android:layout_marginStart="3dp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:gravity="center_horizontal"
-            android:layout_gravity="center_horizontal"
-            android:textSize="16sp"
-            android:text="Аудитория"
-            android:id="@+id/classroomInv"
-            android:background="@color/week_background">
-        </TextView>
-        <TextView
-            android:layout_marginTop="3dp"
-            android:layout_marginBottom="3dp"
-            android:layout_marginEnd="3dp"
-            android:layout_marginStart="3dp"
-            android:padding="10dp"
-            android:background="@drawable/lesson_style"
-            android:layout_width="match_parent"
-            android:gravity="center_horizontal"
-            android:layout_height="wrap_content"
-            android:id="@+id/classroom"
-            android:text="215А"
-            android:textColor="@color/main_text_color"
-            android:elevation="2dp"
-            android:textSize="20sp">
-        </TextView>
-        <TextView
-            android:layout_marginTop="3dp"
-            android:layout_marginBottom="3dp"
-            android:layout_marginEnd="3dp"
-            android:layout_marginStart="3dp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:gravity="center_horizontal"
-            android:layout_gravity="center_horizontal"
-            android:textSize="16sp"
-            android:text="Домашнее задание"
-            android:id="@+id/homeworkInv"
-            android:background="@color/week_background">
-        </TextView>
-        <RelativeLayout
-            android:layout_marginTop="3dp"
-            android:layout_marginBottom="3dp"
-            android:layout_marginEnd="3dp"
-            android:layout_marginStart="3dp"
-            android:background="@drawable/lesson_style"
-            android:layout_width="match_parent"
-            android:gravity="center_horizontal"
-            android:layout_height="wrap_content"
-            android:id="@+id/homeworkFull"
-            android:textColor="@color/main_text_color"
-            android:paddingLeft="10dp"
-            android:paddingRight="10dp"
-            android:elevation="2dp">
+                android:gravity="center_horizontal"
+                android:layout_gravity="center_horizontal"
+                android:textSize="16sp"
+                android:id="@+id/name_inv"
+                android:text="Предмет"
+                android:background="@color/week_background">
+            </TextView>
             <TextView
-                android:layout_marginTop="9dp"
-                android:layout_marginBottom="9dp"
-                android:layout_marginEnd="7dp"
-                android:layout_marginStart="7dp"
-                android:layout_width="match_parent"
-                android:gravity="center"
-                android:layout_centerInParent="true"
-                android:layout_height="wrap_content"
-                android:id="@+id/homework"
                 android:textColor="@color/main_text_color"
-                android:maxLines="7"
-                android:text="Прочитать Бэлу, подготовить ответы с опорой на текст на вопросы из ДЗ: закладки/выписанные на листок с заданием номера страниц. Учим и сдаём второе из пяти стихотворений Лермонтова.Прочитать Бэлу, подготовить ответы с опорой на текст на вопросы из ДЗ: закладки/выписанные на листок с заданием номера страниц. Учим и сдаём второе из пяти стихотворений Лермонтова.Прочитать Бэлу, подготовить ответы с опорой на текст на вопросы из ДЗ: закладки/выписанные на листок с заданием номера страниц. Учим и сдаём второе из пяти стихотворений Лермонтова.Прочитать Бэлу, подготовить ответы с опорой на текст на вопросы из ДЗ: закладки/выписанные на листок с заданием номера страниц. Учим и сдаём второе из пяти стихотворений Лермонтова."
-                android:scrollbars = "vertical"
-                android:ellipsize="end"
-                android:singleLine="false"
+                android:layout_marginTop="3dp"
+                android:layout_marginBottom="3dp"
+                android:layout_marginEnd="3dp"
+                android:layout_marginStart="3dp"
+                android:padding="10dp"
+                android:background="@drawable/lesson_style"
+                android:layout_width="match_parent"
+                android:gravity="center_horizontal"
+                android:layout_height="wrap_content"
+                android:id="@+id/new_name_of_lesson"
+                tools:text="Алгебра"
+                android:transitionName="mewSharedItemView"
+                android:text="Алгебра"
+                android:elevation="2dp"
+                android:textSize="25sp">
+            </TextView>
+    <!--        <TextView-->
+    <!--            android:layout_marginTop="3dp"-->
+    <!--            android:layout_marginBottom="3dp"-->
+    <!--            android:layout_marginEnd="3dp"-->
+    <!--            android:layout_marginStart="3dp"-->
+    <!--            android:layout_width="wrap_content"-->
+    <!--            android:layout_height="wrap_content"-->
+    <!--            android:gravity="center_horizontal"-->
+    <!--            android:layout_gravity="center_horizontal"-->
+    <!--            android:textSize="16sp"-->
+    <!--            android:text="Дата урока"-->
+    <!--            android:background="@color/week_background">-->
+    <!--        </TextView>-->
+    <!--        <LinearLayout-->
+    <!--            android:layout_width="match_parent"-->
+    <!--            android:layout_height="wrap_content"-->
+    <!--            android:gravity="center_horizontal"-->
+    <!--            android:orientation="vertical"-->
+    <!--            android:layout_marginTop="3dp"-->
+    <!--            android:layout_marginBottom="3dp"-->
+    <!--            android:layout_marginEnd="3dp"-->
+    <!--            android:layout_marginStart="3dp"-->
+    <!--            android:padding="10dp"-->
+    <!--            android:elevation="2dp"-->
+    <!--            android:background="@drawable/lesson_style">-->
+    <!--            <LinearLayout-->
+    <!--                android:layout_marginTop="10dp"-->
+    <!--                android:layout_marginBottom="10dp"-->
+    <!--                android:id="@+id/day"-->
+    <!--                android:layout_width="wrap_content"-->
+    <!--                android:layout_height="wrap_content"-->
+    <!--                android:orientation="horizontal">-->
+    <!--                <TextView-->
+    <!--                    android:id="@+id/day_of_the_week"-->
+    <!--                    android:layout_width="wrap_content"-->
+    <!--                    android:layout_height="wrap_content"-->
+    <!--                    android:textSize="20sp"-->
+    <!--                    android:text="Пятница,"-->
+    <!--                    android:layout_marginEnd="10dp">-->
+    <!--                </TextView>-->
+    <!--                <TextView-->
+    <!--                    android:id="@+id/date"-->
+    <!--                    android:layout_width="wrap_content"-->
+    <!--                    android:layout_height="wrap_content"-->
+    <!--                    android:textSize="20sp"-->
+    <!--                    android:text="24 февраля">-->
+    <!--                </TextView>-->
+    <!--            </LinearLayout>-->
+    <!--            <TextView-->
+    <!--                android:layout_width="wrap_content"-->
+    <!--                android:layout_height="wrap_content"-->
+    <!--                android:text="17:30 - 20:00"-->
+    <!--                android:textSize="20sp"-->
+    <!--                android:layout_marginBottom="10dp">-->
+    <!--            </TextView>-->
+    <!--        </LinearLayout>-->
+            <TextView
+                android:id="@+id/teacherInv"
+                android:layout_marginTop="3dp"
+                android:layout_marginBottom="3dp"
+                android:layout_marginEnd="3dp"
+                android:layout_marginStart="3dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:layout_gravity="center_horizontal"
+                android:textSize="16sp"
+                android:text="Учитель"
+                android:background="@color/week_background">
+            </TextView>
+            <TextView
+                android:textColor="@color/main_text_color"
+                android:layout_weight="1"
+                android:layout_marginTop="3dp"
+                android:layout_marginBottom="3dp"
+                android:layout_marginEnd="3dp"
+                android:layout_marginStart="3dp"
+                android:padding="10dp"
+                android:background="@drawable/lesson_style"
+                android:layout_width="match_parent"
+                android:gravity="center_horizontal"
+                android:layout_height="wrap_content"
+                android:id="@+id/teacher"
+                android:text="Андреев М.Ф."
+                android:elevation="2dp"
                 android:textSize="20sp">
             </TextView>
-        </RelativeLayout>
-    </LinearLayout>
+            <TextView
+                android:layout_marginTop="3dp"
+                android:layout_marginBottom="3dp"
+                android:layout_marginEnd="3dp"
+                android:layout_marginStart="3dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:layout_gravity="center_horizontal"
+                android:textSize="16sp"
+                android:id="@+id/addressInv"
+                android:text="Адрес учебного заведения"
+                android:background="@color/week_background">
+            </TextView>
+            <LinearLayout
+                android:id="@+id/addressFull"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:orientation="vertical"
+                android:layout_marginTop="3dp"
+                android:layout_marginBottom="3dp"
+                android:layout_marginEnd="3dp"
+                android:layout_marginStart="3dp"
+                android:padding="10dp"
+                android:elevation="2dp"
+                android:background="@drawable/lesson_style">
+                <LinearLayout
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:id="@+id/where"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <TextView
+                        android:textColor="@color/main_text_color"
+                        android:id="@+id/address"
+                        android:layout_weight="1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="20sp"
+                        android:text="Пролетарский пр., 6,"
+                        android:layout_marginEnd="10dp">
+                    </TextView>
+                    <TextView
+                        android:textColor="@color/main_text_color"
+                        android:layout_weight="1"
+                        android:id="@+id/school"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="20sp"
+                        android:text="Лицей 1511">
+                    </TextView>
+                </LinearLayout>
+            </LinearLayout>
+            <TextView
+                android:layout_marginTop="3dp"
+                android:layout_marginBottom="3dp"
+                android:layout_marginEnd="3dp"
+                android:layout_marginStart="3dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:layout_gravity="center_horizontal"
+                android:textSize="16sp"
+                android:text="Аудитория"
+                android:id="@+id/classroomInv"
+                android:background="@color/week_background">
+            </TextView>
+            <TextView
+                android:layout_marginTop="3dp"
+                android:layout_marginBottom="3dp"
+                android:layout_marginEnd="3dp"
+                android:layout_marginStart="3dp"
+                android:padding="10dp"
+                android:background="@drawable/lesson_style"
+                android:layout_width="match_parent"
+                android:gravity="center_horizontal"
+                android:layout_height="wrap_content"
+                android:id="@+id/classroom"
+                android:text="215А"
+                android:textColor="@color/main_text_color"
+                android:elevation="2dp"
+                android:textSize="20sp">
+            </TextView>
+            <TextView
+                android:layout_marginTop="3dp"
+                android:layout_marginBottom="3dp"
+                android:layout_marginEnd="3dp"
+                android:layout_marginStart="3dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:layout_gravity="center_horizontal"
+                android:textSize="16sp"
+                android:text="Домашнее задание"
+                android:id="@+id/homeworkInv"
+                android:background="@color/week_background">
+            </TextView>
+            <RelativeLayout
+                android:layout_marginTop="3dp"
+                android:layout_marginBottom="20dp"
+                android:layout_marginEnd="3dp"
+                android:layout_marginStart="3dp"
+                android:background="@drawable/lesson_style"
+                android:layout_width="match_parent"
+                android:gravity="center_horizontal"
+                android:layout_height="wrap_content"
+                android:id="@+id/homeworkFull"
+                android:textColor="@color/main_text_color"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:elevation="2dp">
+                <TextView
+                    android:layout_marginTop="9dp"
+                    android:layout_marginBottom="9dp"
+                    android:layout_marginEnd="7dp"
+                    android:layout_marginStart="7dp"
+                    android:layout_width="match_parent"
+                    android:gravity="center"
+                    android:layout_centerInParent="true"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/homework"
+                    android:textColor="@color/main_text_color"
+                    android:text="Прочитать Бэлу, подготовить ответы с опорой на текст на вопросы из ДЗ: закладки/выписанные на листок с заданием номера страниц. Учим и сдаём второе из пяти стихотворений Лермонтова.Прочитать Бэлу, подготовить ответы с опорой на текст на вопросы из ДЗ: закладки/выписанные на листок с заданием номера страниц. Учим и сдаём второе из пяти стихотворений Лермонтова.Прочитать Бэлу, подготовить ответы с опорой на текст на вопросы из ДЗ: закладки/выписанные на листок с заданием номера страниц. Учим и сдаём второе из пяти стихотворений Лермонтова.Прочитать Бэлу, подготовить ответы с опорой на текст на вопросы из ДЗ: закладки/выписанные на листок с заданием номера страниц. Учим и сдаём второе из пяти стихотворений Лермонтова."
+                    android:textSize="20sp">
+                </TextView>
+            </RelativeLayout>
+        </LinearLayout>
+    </ScrollView>
 </LinearLayout>

@@ -1,7 +1,9 @@
 package com.draizyyy.myreportcard;
 
 import android.content.Intent;
+import android.icu.util.Freezable;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,13 +15,17 @@ import androidx.fragment.app.Fragment;
 import com.draizyyy.myreportcard.databinding.ActivityAccountBinding;
 import com.google.firebase.auth.FirebaseAuth;
 
+import java.util.Objects;
+
 public class AccountActivity extends Fragment {
     private ActivityAccountBinding binding;
+    private String nameAndSurname;
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        binding = binding.inflate(inflater, container, false);
+        binding = ActivityAccountBinding.inflate(inflater, container, false);
+        binding.nameAndSurname.setText(nameAndSurname);
         binding.exitButton.setOnClickListener(view -> {
             FirebaseAuth.getInstance().signOut();
             Intent intent = new Intent(AccountActivity.this.getActivity(), LoginActivity.class);
@@ -28,5 +34,13 @@ public class AccountActivity extends Fragment {
             requireActivity().finish();
         });
         return binding.getRoot();
+    }
+    public void getNameAndSurname() {
+        new Thread(() -> {
+            String email = Objects.requireNonNull(FirebaseAuth.getInstance().getCurrentUser()).getEmail();
+            DayDao dayDao = App.getDatabase().dayDao();
+            User user = dayDao.getUserByEmail(email);
+            nameAndSurname = user.name + " " + user.surname;
+        }).start();
     }
 }

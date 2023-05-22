@@ -37,7 +37,6 @@ public class NewsActivity extends Fragment {
         super.onCreate(savedInstanceState);
         newsBinding = newsBinding.inflate(inflater, container, false);
 
-        initData();
         setupUI();
 
         return newsBinding.getRoot();
@@ -57,10 +56,9 @@ public class NewsActivity extends Fragment {
 //        });
     }
 
-    private void initData() {
-        newsList.add(new News("Администрация", "20 апреля", "Завтра уроки отменяются по закону Григоренко"));
+    public void initData() {
+        newsList.add(new News("Администрация", "20 апреля", "Завтра уроки отменяются"));
         newsList.add(new News("Королёв Б.И.", "17 апреля", "Завтра отменяются все уроки физики, потому что я сегодня добрый."));
         newsList.add(new News("Кручинина О.Б.", "19 апреля", "Сегодня уроков не будет, можете идти домой"));
-        newsList.add(new News("Supercell", "20 апреля", "Завтра всех забанят в бравл старс"));
     }
 }

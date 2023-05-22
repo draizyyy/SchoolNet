@@ -44,26 +44,26 @@ public class TimetableActivity extends Fragment {
         return weekBinding.getRoot();
     }
     private void setupUI() {
-        RecyclerView DayRecyclerViewItem
-                = weekBinding.timetable;
+//        RecyclerView DayRecyclerViewItem
+//                = weekBinding.timetable;
+//
+//        // Initialise the Linear layout manager
+//        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getContext());
+//
+//        // Pass the arguments
+//        // to the parentItemAdapter.
+//        // These arguments are passed
+//        // using a method ParentItemList()
+//        MyDayAdapter myDayAdapter = new MyDayAdapter(dayList);
+//
+//
+//        // Set the layout manager
+//        // and adapter for items
+//        // of the parent recyclerview
+//        DayRecyclerViewItem.setAdapter(myDayAdapter);
+//        DayRecyclerViewItem.setLayoutManager(layoutManager);
 
-        // Initialise the Linear layout manager
-        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getContext());
-
-        // Pass the arguments
-        // to the parentItemAdapter.
-        // These arguments are passed
-        // using a method ParentItemList()
-        MyDayAdapter myDayAdapter = new MyDayAdapter(dayList);
-
-
-        // Set the layout manager
-        // and adapter for items
-        // of the parent recyclerview
-        DayRecyclerViewItem.setAdapter(myDayAdapter);
-        DayRecyclerViewItem.setLayoutManager(layoutManager);
-
-        DayRecyclerViewItem.addOnScrollListener(new RecyclerView.OnScrollListener() {
+        weekBinding.timetable.addOnScrollListener(new RecyclerView.OnScrollListener() {
             @Override
             public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
                 super.onScrolled(recyclerView, dx, dy);
@@ -92,8 +92,8 @@ public class TimetableActivity extends Fragment {
         weekBinding.timetable.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false));
         weekBinding.timetable.setAdapter(new MyDayAdapter(dayList));
         PagerSnapHelper helper = new PagerSnapHelper();
-        helper.attachToRecyclerView(DayRecyclerViewItem);
-        Objects.requireNonNull(DayRecyclerViewItem.getLayoutManager()).scrollToPosition(Date.getTodayDateNumber());
+        helper.attachToRecyclerView(weekBinding.timetable);
+        Objects.requireNonNull(weekBinding.timetable.getLayoutManager()).scrollToPosition(Date.getTodayDateNumber());
     }
     private Day getDay() {
         //нужно добавить вот эту штуку во все остальные классы где это нужно

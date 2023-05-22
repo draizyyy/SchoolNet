@@ -40,7 +40,12 @@ public class MyGradeAdapter extends RecyclerView.Adapter<MyGradeAdapter.MyViewHo
         final Grade grade = list.get(position);
         Log.i("MY APP", grade.lesson_name);
         holder.name.setText(grade.lesson_name);
-        holder.grade.setText(String.valueOf(grade.grade));
+        if (grade.grade != null) {
+            holder.grade.setText(String.valueOf(grade.grade));
+        }
+        else {
+            holder.grade.setText("");
+        }
     }
 
     @Override

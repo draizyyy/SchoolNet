@@ -22,9 +22,15 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        NewsActivity newsActivity = new NewsActivity();
+
+        newsActivity.initData();
 
         TimetableActivity timetableActivity = new TimetableActivity();
         timetableActivity.initData();
+
+        HomeworksActivity homeworksActivity = new HomeworksActivity();
+        homeworksActivity.initData();
 
         GradeActivity gradeActivity = new GradeActivity();
         gradeActivity.initData();
@@ -38,13 +44,12 @@ public class MainActivity extends AppCompatActivity {
         View view = binding.getRoot();
         setContentView(view);
 
-        NewsActivity newsActivity = new NewsActivity();
-
         AccountActivity accountActivity = new AccountActivity();
+        accountActivity.getNameAndSurname();
 
-        swapFragment(timetableActivity);
+        swapFragment(newsActivity);
         setAlphaToDefault();
-        binding.timetableButton.setAlpha(1);
+        binding.newsButton.setAlpha(1);
 
         binding.newsButton.setOnClickListener(view1 -> {
             swapFragment(newsActivity);
@@ -57,9 +62,9 @@ public class MainActivity extends AppCompatActivity {
             binding.timetableButton.setAlpha(1);
         });
         binding.homeworksButton.setOnClickListener(view1 -> {
-//            swapFragment(timetableActivity);
-//            setAlphaToDefault();
-//            binding.homeworksButton.setAlpha(1);
+            swapFragment(homeworksActivity);
+            setAlphaToDefault();
+            binding.homeworksButton.setAlpha(1);
         });
         binding.marksButton.setOnClickListener(view1 -> {
             swapFragment(gradeActivity);
@@ -85,6 +90,6 @@ public class MainActivity extends AppCompatActivity {
         transaction.commit();
 
         Vibrator v = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
-        v.vibrate(VibrationEffect.createOneShot(200, VibrationEffect.DEFAULT_AMPLITUDE));
+        v.vibrate(VibrationEffect.createOneShot(50, VibrationEffect.DEFAULT_AMPLITUDE));
     }
 }

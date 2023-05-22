@@ -121,15 +121,51 @@ public abstract class DayDao {
 
     @Query("SELECT * FROM Lesson WHERE dayId = :dayId")
     public abstract List<Lesson> loadAllLessonsById(int dayId);
-
+    @Transaction
+    public List<Day> getAllDayWithNotNullLessonsHomework() {
+//        Log.i("MY APP", "getAllDayWithNotNullLessonsHomework(): done");
+//        List<Lesson> test = loadAllLessons();
+//        Log.i("MY APP", "loadAllLessons size: " + test.size());
+//        for (Lesson lesson: test) {
+//            System.out.println(lesson.name + " id: " + lesson.id + " dayId: " + lesson.dayId);
+//            if (lesson.homework == null || lesson.homework.equals("") || lesson.homework.equals(" ")) {
+//                test.remove(lesson);
+//                Log.i("MY APP", "deleted");
+//            }
+        List<Day> days =  loadAllDays();
+        List<Lesson> deleteLessons = new ArrayList<>();
+        List<Day> deleteDays = new ArrayList<>();
+        Log.i("MY APP", "loaded all days");
+        Log.i("MY APP", "day.size: " + (days.size()));
+        for (Day day: days) {
+            day.LessonsList = loadAllLessonsById(day.id);
+            for (Lesson lesson: day.LessonsList) {
+                if (lesson.homework == null || lesson.homework.equals("") || lesson.homework.equals(" ")) {
+                    deleteLessons.add(lesson);
+                }
+            }
+            for (Lesson lesson: deleteLessons) {
+                day.LessonsList.remove(lesson);
+            }
+            if (day.LessonsList.size() == 0) {
+                Log.i("MY APP", "day " + day.day_name + "deleted");
+                deleteDays.add(day);
+            }
+        }
+        for (Day day: deleteDays) {
+            days.remove(day);
+        }
+        Log.i("MY APP", "loaded all lessons by id");
+        return days;
+    }
     @Transaction
     public List<Day> getAll() {
         Log.i("MY APP", "done");
-        List<Lesson> test = loadAllLessons();
-        Log.i("MY APP", "loadAllLessons size: " + test.size());
-        for (Lesson lesson: test) {
-            System.out.println(lesson.name + " id: " + lesson.id + " dayId: " + lesson.dayId);
-        }
+//        List<Lesson> test = loadAllLessons();
+//        Log.i("MY APP", "loadAllLessons size: " + test.size());
+//        for (Lesson lesson: test) {
+//            System.out.println(lesson.name + " id: " + lesson.id + " dayId: " + lesson.dayId);
+//        }
         List<Day> days = loadAllDays();
         Log.i("MY APP", "loaded all days");
         Log.i("MY APP", "day.size: " + (days.size()));
@@ -163,7 +199,6 @@ public abstract class DayDao {
             }
         }
     }
-
     @Insert
     public abstract void insertLesson(Lesson lesson);
     @Insert
@@ -177,4 +212,8 @@ public abstract class DayDao {
 
     @Query("DELETE FROM Day")
     public abstract void deleteAllDays();
+    @Insert
+    public abstract void insertUser(User user);
+    @Query("SELECT * FROM User WHERE email = :email")
+    public abstract User getUserByEmail(String email);
 }

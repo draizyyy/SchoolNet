@@ -25,9 +25,15 @@ public class RegistrationActivity extends AppCompatActivity {
         binding.regButton.setOnClickListener(view -> {
             String login = binding.regLogin.getText().toString().trim();
             String password = binding.regPassword.getText().toString().trim();
+            String name = binding.regName.getText().toString().trim();
+            String surname = binding.regSurname.getText().toString().trim();
             Log.i("MY APP", "login: " + login + " password " + password);
             FirebaseAuth.getInstance().createUserWithEmailAndPassword(login, password).addOnCompleteListener(task -> {
                 if (task.isSuccessful()) {
+                    new Thread(() -> {
+                        DayDao dayDao = App.getDatabase().dayDao();
+                        dayDao.insertUser(new User(login, name, surname));
+                    }).start();
                     Intent intent = new Intent(RegistrationActivity.this, LoginActivity.class);
 //            intent.putExtra("name", getTextValue(binding.email));
                     startActivity(intent);

@@ -35,7 +35,6 @@ public class LoginActivity extends AppCompatActivity {
             Intent intent = new Intent(LoginActivity.this, RegistrationActivity.class);
 //            intent.putExtra("name", getTextValue(binding.email));
             startActivity(intent);
-            finish();
         });
         binding.loginButton.setOnClickListener(view1 -> {
             String email = binding.loginLogin.getText().toString().trim();

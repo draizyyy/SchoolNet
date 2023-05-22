@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_marginTop="7dp"
@@ -12,7 +13,6 @@
     <RelativeLayout
         android:layout_marginTop="10dp"
         android:layout_marginBottom="5dp"
-        xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/day_and_date"
@@ -50,6 +50,6 @@
         android:layout_marginBottom="13dp"
         android:textSize="14sp"
         android:paddingEnd="10dp"
-        android:text="Прочитать параграфы 25 и 26, ответить на вопросы 2-7 на с. 9 и 2-6 на с. 20. Просмотреть видео-урок по ссылке: https://youtu.be/hT8FaDbYwTY (можно начать смотреть с 35 минуты 40 секунды)" >
+        tools:text="Прочитать параграфы 25 и 26, ответить на вопросы 2-7 на с. 9 и 2-6 на с. 20. Просмотреть видео-урок по ссылке: https://youtu.be/hT8FaDbYwTY (можно начать смотреть с 35 минуты 40 секунды)" >
     </TextView>
 </LinearLayout>
