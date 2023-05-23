@@ -109,8 +109,8 @@ public class Lesson {
     public Lesson(String name, String start_time, String finish_time, String grade, String classroom) {
         this(name, start_time, finish_time, grade, classroom, "", "", "", "");
     }
-    public Lesson(String name, String start_time, String finish_time, String grade, String classroom, String address) {
-        this(name, start_time, finish_time, grade, classroom, address, "", "", "");
+    public Lesson(String name, String start_time, String finish_time, int grade, String classroom, String teacher, String homework) {
+        this(name, start_time, finish_time, String.valueOf(grade), classroom, "Кленовый бульвар, 21", "Лицей 1523", teacher, homework);
     }
     public Lesson(String name, String start_time, String finish_time, String grade, String classroom, String address, String schoolName) {
         this(name, start_time, finish_time, grade, classroom, address, schoolName, "", "");
@@ -128,5 +128,9 @@ public class Lesson {
         this.teacher = teacher;
         this.classroom = classroom;
         this.homework = homework;
+
+        if (this.grade.equals("0")) {
+            this.grade = "";
+        }
     }
 }
