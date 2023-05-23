@@ -4,6 +4,8 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -34,6 +36,10 @@ public class MyDayHomeworkAdapter extends RecyclerView.Adapter<MyDayHomeworkAdap
         Log.v("MY APP", "name of lesson: " + lesson.name + ", homework: " + lesson.homework);
         holder.name.setText(lesson.getName());
         holder.homework.setText(lesson.homework);
+        holder.checkBox.setChecked(lesson.isChecked);
+        holder.checkBox.setOnClickListener(view -> {
+            lesson.isChecked = !lesson.isChecked;
+        });
     }
     @Override
     public int getItemCount() {
@@ -43,10 +49,12 @@ public class MyDayHomeworkAdapter extends RecyclerView.Adapter<MyDayHomeworkAdap
     static class MyDayHomeworkViewHolder extends RecyclerView.ViewHolder {
         private final TextView name;
         private final TextView homework;
+        private final CheckBox checkBox;
         public MyDayHomeworkViewHolder(@NonNull View itemView) {
             super(itemView);
             name = itemView.findViewById(R.id.homework_name_of_lesson);
             homework = itemView.findViewById(R.id.text_of_homework);
+            checkBox = itemView.findViewById(R.id.homework_check_box);
         }
     }
 }

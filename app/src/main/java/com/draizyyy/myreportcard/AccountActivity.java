@@ -20,12 +20,14 @@ import java.util.Objects;
 public class AccountActivity extends Fragment {
     private ActivityAccountBinding binding;
     private String nameAndSurname;
+    private String mail;
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         binding = ActivityAccountBinding.inflate(inflater, container, false);
         binding.nameAndSurname.setText(nameAndSurname);
+        binding.userMail.setText(mail);
         binding.exitButton.setOnClickListener(view -> {
             FirebaseAuth.getInstance().signOut();
             Intent intent = new Intent(AccountActivity.this.getActivity(), LoginActivity.class);
@@ -41,6 +43,7 @@ public class AccountActivity extends Fragment {
             DayDao dayDao = App.getDatabase().dayDao();
             User user = dayDao.getUserByEmail(email);
             nameAndSurname = user.name + " " + user.surname;
+            mail = email;
         }).start();
     }
 }

@@ -6,30 +6,44 @@ import androidx.room.Entity;
 import androidx.room.Ignore;
 import androidx.room.PrimaryKey;
 
+import com.google.gson.annotations.SerializedName;
+
 import org.jetbrains.annotations.NotNull;
 
 @Entity
 public class Lesson {
+    @SerializedName("id")
     @PrimaryKey(autoGenerate = true)
     public int id;
+    @SerializedName("dayId")
     public int dayId;
+    public boolean isChecked = false;
+    @SerializedName("name")
     @ColumnInfo(name = "Lesson name")
     @NotNull
     public String name;
+    @SerializedName("start_time")
     @ColumnInfo(name = "Start time")
     public String start_time;
+    @SerializedName("finish_time")
     @ColumnInfo(name = "End time")
     public String finish_time;
+    @SerializedName("grade")
     @ColumnInfo(name = "Grade")
     public String grade;
+    @SerializedName("classroom")
     @ColumnInfo(name = "Classroom")
     public String classroom;
+    @SerializedName("address")
     @ColumnInfo(name = "Address")
     public String address;
+    @SerializedName("schoolName")
     @ColumnInfo(name = "School name")
     public String schoolName;
+    @SerializedName("teacher")
     @ColumnInfo(name = "Teacher")
     public String teacher;
+    @SerializedName("homework")
     @ColumnInfo(name = "Homework")
     public String homework;
     public Lesson(@NonNull String name, String start_time, String finish_time) {

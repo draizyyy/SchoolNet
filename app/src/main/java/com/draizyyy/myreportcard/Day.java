@@ -9,6 +9,8 @@ import androidx.room.Entity;
 import androidx.room.Ignore;
 import androidx.room.PrimaryKey;
 
+import com.google.gson.annotations.SerializedName;
+
 import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
@@ -16,13 +18,17 @@ import java.util.List;
 
 @Entity
 public class Day {
+    @SerializedName("id")
     @PrimaryKey(autoGenerate = true)
     public int id;
+    @SerializedName("day_name")
     @ColumnInfo(name = "Day name")
     @NotNull
     public String day_name;
+    @SerializedName("lessonsList")
     @Ignore
     public List<Lesson> LessonsList;
+    @SerializedName("dateOfDay")
     @ColumnInfo(name = "Date of day")
     public String dateOfDay;
     public Day(String day_name) {
