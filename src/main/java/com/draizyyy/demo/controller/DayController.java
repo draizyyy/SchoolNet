@@ -2,10 +2,6 @@ package com.draizyyy.demo.controller;
 
 import com.draizyyy.demo.model.Day;
 import com.draizyyy.demo.model.Lesson;
-import com.draizyyy.demo.model.User;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;

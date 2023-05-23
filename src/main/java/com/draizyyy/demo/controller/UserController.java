@@ -10,25 +10,32 @@ import com.draizyyy.demo.model.User;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/users")
 public class UserController {
-
     List<User> users = new ArrayList<>();
 
     @GetMapping
     public List<User> getAllUsers() {
         return users;
     }
-
-    @PostMapping
-    public ResponseEntity<List<User>> addUser(@RequestBody User newUser) {
-        for (User user: users) {
-            if (Objects.equals(user.getId(), newUser.getId())) {
-                return ResponseEntity.status(HttpStatus.CONFLICT).build();
+    @GetMapping("/{mail}")
+    public ResponseEntity<User> getByMail(@PathVariable String mail) {
+        for (User user1: users) {
+            System.out.println("getUser: id: " + user1.id + " mail: " + user1.mail + " name: " + user1.name + " surname: " + user1.surname);
+            if (user1.getMail().equals(mail)) {
+                return ResponseEntity.ok(user1);
             }
         }
+        return ResponseEntity.notFound().build();
+    }
+
+    @PostMapping()
+    public ResponseEntity<List<User>> addUser(@RequestBody User newUser) {
+        newUser.setId((long) users.size());
+        System.out.println("newUser: " + newUser.id + " " + newUser.mail + " " + newUser.name + " " + newUser.surname);
         users.add(newUser);
         return ResponseEntity.ok(users);
     }
@@ -41,12 +48,12 @@ public class UserController {
                 return ResponseEntity.ok(users.get(counter));
             }
             counter++;
-        } return ResponseEntity.notFound().build();
+        }
+        return ResponseEntity.notFound().build();
     }
 
     @GetMapping("/someone")
     public User getSomeone() {
-        User user = new User(1L, "bima", "bima@gmail.ru", new User.Pet("Sharik", "Dog", 6));
-        return user;
+        return new User("bima@gmail.ru", "bima", "dur");
     }
 }

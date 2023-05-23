@@ -1,10 +1,8 @@
 package com.draizyyy.demo.model;
 
-import java.util.ArrayList;
-import java.util.List;
-
-
 import jakarta.persistence.*;
+
+import java.util.List;
 
 @Entity
 @Table(name = "days")
@@ -12,10 +10,6 @@ public class Day {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     public Long id;
-
-    public void setId(Long id) {
-        this.id = id;
-    }
 
     public void setDay_name(String day_name) {
         this.day_name = day_name;

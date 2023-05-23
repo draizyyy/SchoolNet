@@ -1,86 +1,52 @@
 package com.draizyyy.demo.model;
 
-import org.apache.juli.logging.Log;
+import jakarta.persistence.*;
 
+@Entity
+@Table(name = "users")
 public class User {
-    private Long id;
-    private String name;
-    private String email;
-    private Pet pet;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    public Long id;
+    public String mail;
+    public String name;
+    public String surname;
 
-    public static class Pet {
-        private String name;
-        private String type;
-        private int age;
-
-        public Pet(String name, String type, int age) {
-            this.name = name;
-            this.type = type;
-            this.age = age;
-        }
-
-        public void setName(String name) {
-            this.name = name;
-        }
-
-        public void setType(String type) {
-            this.type = type;
-        }
-
-        public void setAge(int age) {
-            this.age = age;
-        }
-
-        public String getName() {
-            return name;
-        }
-
-        public String getType() {
-            return type;
-        }
-
-        public int getAge() {
-            return age;
-        }
-
-    }
-    public User(Long id, String name, String email, Pet pet) {
-        this.id = id;
-        this.name = name;
-        this.email = email;
-        this.pet = pet;
+    public Long getId() {
+        return id;
     }
 
     public void setId(Long id) {
         this.id = id;
     }
 
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public Long getId() {
-        return id;
+    public String getMail() {
+        return mail;
     }
 
     public String getName() {
         return name;
     }
 
-    public String getEmail() {
-        return email;
+    public String getSurname() {
+        return surname;
     }
 
-    public void setPet(Pet pet) {
-        this.pet = pet;
+    public void setMail(String mail) {
+        this.mail = mail;
     }
 
-    public Pet getPet() {
-        return pet;
+    public void setName(String name) {
+        this.name = name;
     }
 
+    public void setSurname(String surname) {
+        this.surname = surname;
+    }
+
+    public User(String mail, String name, String surname) {
+        this.mail = mail;
+        this.name = name;
+        this.surname = surname;
+    }
 }

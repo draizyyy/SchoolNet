@@ -11,14 +11,6 @@ public class Lesson {
     public Long dayId;
     public String name;
 
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public void setDayId(Long dayId) {
-        this.dayId = dayId;
-    }
-
     public void setName(String name) {
         this.name = name;
     }
