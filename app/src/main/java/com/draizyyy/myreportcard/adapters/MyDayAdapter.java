@@ -1,24 +1,24 @@
-package com.draizyyy.myreportcard;
+package com.draizyyy.myreportcard.adapters;
 
 import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import java.util.ArrayList;
+import com.draizyyy.myreportcard.R;
+import com.draizyyy.myreportcard.pojos.Day;
+
 import java.util.List;
 
 public class MyDayAdapter extends RecyclerView.Adapter<MyDayAdapter.DayViewHolder> {
     private final RecyclerView.RecycledViewPool viewPool = new RecyclerView.RecycledViewPool();
     private final List<Day> list;
 
-    MyDayAdapter(List<Day> list)
+    public MyDayAdapter(List<Day> list)
     {
         this.list = list;
     }

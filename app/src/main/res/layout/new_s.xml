@@ -17,7 +17,7 @@
         android:layout_height="wrap_content"
         android:id="@+id/day_and_date"
         android:orientation="vertical"
-        tools:context=".TimetableActivity">
+        tools:context=".fragments.TimetableActivity">
         <TextView
             android:layout_marginStart="10dp"
             android:id="@+id/author_name"

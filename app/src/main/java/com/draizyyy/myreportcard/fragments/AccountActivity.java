@@ -1,9 +1,7 @@
-package com.draizyyy.myreportcard;
+package com.draizyyy.myreportcard.fragments;
 
 import android.content.Intent;
-import android.icu.util.Freezable;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,6 +10,9 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
+import com.draizyyy.myreportcard.retrofit.NetworkService;
+import com.draizyyy.myreportcard.actiivities.LoginActivity;
+import com.draizyyy.myreportcard.pojos.User;
 import com.draizyyy.myreportcard.databinding.ActivityAccountBinding;
 import com.google.firebase.auth.FirebaseAuth;
 
@@ -40,10 +41,11 @@ public class AccountActivity extends Fragment {
     public void getNameAndSurname() {
         new Thread(() -> {
             String email = Objects.requireNonNull(FirebaseAuth.getInstance().getCurrentUser()).getEmail();
-            DayDao dayDao = App.getDatabase().dayDao();
-            User user = dayDao.getUserByEmail(email);
+            NetworkService networkService = new NetworkService();
+//            DayDao dayDao = App.getDatabase().dayDao();
+            User user = networkService.getUserByMail(email);
             nameAndSurname = user.name + " " + user.surname;
-            mail = email;
+            mail = user.mail;
         }).start();
     }
 }

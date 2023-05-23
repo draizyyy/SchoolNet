@@ -1,4 +1,4 @@
-package com.draizyyy.myreportcard;
+package com.draizyyy.myreportcard.fragments;
 
 import android.os.Bundle;
 import android.util.Log;
@@ -10,15 +10,16 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.PagerSnapHelper;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.draizyyy.myreportcard.App;
+import com.draizyyy.myreportcard.adapters.MyHomeworkAdapter;
 import com.draizyyy.myreportcard.databinding.ActivityHomeworkBinding;
-import com.draizyyy.myreportcard.databinding.ActivityTimetableBinding;
+import com.draizyyy.myreportcard.pojos.Day;
+import com.draizyyy.myreportcard.room.DayDao;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
 
 public class HomeworksActivity extends Fragment {
     private final List<Day> dayList = new ArrayList<>();

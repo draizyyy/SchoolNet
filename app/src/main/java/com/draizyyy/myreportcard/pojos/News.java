@@ -1,4 +1,4 @@
-package com.draizyyy.myreportcard;
+package com.draizyyy.myreportcard.pojos;
 
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
@@ -6,8 +6,8 @@ import androidx.room.PrimaryKey;
 
 @Entity
 public class News {
-    @PrimaryKey
-    int id;
+    @PrimaryKey(autoGenerate = true)
+    public int id;
     @ColumnInfo(name = "Author name")
     public String authorName;
     @ColumnInfo(name = "Date")

@@ -1,4 +1,4 @@
-package com.draizyyy.myreportcard;
+package com.draizyyy.myreportcard.fragments;
 
 import android.os.Bundle;
 import android.util.Log;
@@ -8,24 +8,22 @@ import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.LinearSnapHelper;
 import androidx.recyclerview.widget.PagerSnapHelper;
 import androidx.recyclerview.widget.RecyclerView;
-import androidx.recyclerview.widget.SnapHelper;
 
-import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
-import com.draizyyy.myreportcard.DayDao;
-
+import com.draizyyy.myreportcard.App;
+import com.draizyyy.myreportcard.adapters.MyDayAdapter;
 import com.draizyyy.myreportcard.databinding.ActivityTimetableBinding;
-import com.draizyyy.myreportcard.databinding.TimetableDayBinding;
+import com.draizyyy.myreportcard.other.Date;
+import com.draizyyy.myreportcard.pojos.Day;
+import com.draizyyy.myreportcard.pojos.Lesson;
+import com.draizyyy.myreportcard.room.DayDao;
 
 public class TimetableActivity extends Fragment {
 //    private final List<Lesson> lessonList = new ArrayList<>();
@@ -106,7 +104,7 @@ public class TimetableActivity extends Fragment {
         return new Day("Тестовый день", arrayList);
     }
     private int getCurrentItem(){
-        return ((LinearLayoutManager)weekBinding.timetable.getLayoutManager())
+        return ((LinearLayoutManager) Objects.requireNonNull(weekBinding.timetable.getLayoutManager()))
                 .findFirstVisibleItemPosition();
     }
 
@@ -122,8 +120,6 @@ public class TimetableActivity extends Fragment {
             DayDao dayDao = App.getDatabase().dayDao();
             Log.i("MY APP", "got dao");
             dayList.addAll(dayDao.getAll());
-            Day day = dayList.get(2);
-            Log.i("MY APP", "timetable dayList 2 day lessonList size: " + day.LessonsList.size());
         }).start();
         Log.i("MY APP", "done1");
     }

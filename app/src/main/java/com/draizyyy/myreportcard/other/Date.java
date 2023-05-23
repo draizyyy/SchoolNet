@@ -1,4 +1,4 @@
-package com.draizyyy.myreportcard;
+package com.draizyyy.myreportcard.other;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;

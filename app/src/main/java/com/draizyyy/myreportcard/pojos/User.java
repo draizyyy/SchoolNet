@@ -1,4 +1,4 @@
-package com.draizyyy.myreportcard;
+package com.draizyyy.myreportcard.pojos;
 
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
@@ -7,16 +7,16 @@ import androidx.room.PrimaryKey;
 public class User {
     @PrimaryKey(autoGenerate = true)
     public long id;
-    public String email;
+    public String mail;
     public String name;
     public String surname;
 
     public String getEmail() {
-        return email;
+        return mail;
     }
 
     public void setEmail(String email) {
-        this.email = email;
+        this.mail = email;
     }
 
     public String getName() {
@@ -35,8 +35,8 @@ public class User {
         this.surname = surname;
     }
 
-    public User(String email, String name, String surname) {
-        this.email = email;
+    public User(String mail, String name, String surname) {
+        this.mail = mail;
         this.name = name;
         this.surname = surname;
     }

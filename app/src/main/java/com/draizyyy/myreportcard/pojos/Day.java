@@ -1,19 +1,18 @@
-package com.draizyyy.myreportcard;
+package com.draizyyy.myreportcard.pojos;
 
 import android.util.Log;
 
 import androidx.annotation.NonNull;
 import androidx.room.ColumnInfo;
-import androidx.room.Embedded;
 import androidx.room.Entity;
 import androidx.room.Ignore;
 import androidx.room.PrimaryKey;
 
+import com.draizyyy.myreportcard.other.Date;
 import com.google.gson.annotations.SerializedName;
 
 import org.jetbrains.annotations.NotNull;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @Entity

@@ -1,15 +1,16 @@
-package com.draizyyy.myreportcard;
+package com.draizyyy.myreportcard.room;
 
 import android.util.Log;
 
 import androidx.room.Dao;
-import androidx.room.Delete;
 import androidx.room.Insert;
 import androidx.room.Query;
 import androidx.room.Transaction;
-import androidx.room.Update;
 
-import java.lang.invoke.MethodHandles;
+import com.draizyyy.myreportcard.pojos.Day;
+import com.draizyyy.myreportcard.pojos.Lesson;
+import com.draizyyy.myreportcard.pojos.User;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -214,6 +215,6 @@ public abstract class DayDao {
     public abstract void deleteAllDays();
     @Insert
     public abstract void insertUser(User user);
-    @Query("SELECT * FROM User WHERE email = :email")
-    public abstract User getUserByEmail(String email);
+    @Query("SELECT * FROM User WHERE mail = :mail")
+    public abstract User getUserByEmail(String mail);
 }

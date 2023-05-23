@@ -1,36 +1,22 @@
-package com.draizyyy.myreportcard;
+package com.draizyyy.myreportcard.adapters;
 
-import android.annotation.SuppressLint;
-import android.transition.Fade;
-import android.transition.Slide;
-import android.transition.Transition;
-import android.transition.TransitionInflater;
-import android.transition.TransitionManager;
-import android.util.Log;
-import android.view.Gravity;
 import android.view.LayoutInflater;
-import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.animation.Animation;
-import android.view.animation.AnimationUtils;
-import android.view.animation.ScaleAnimation;
 import android.widget.TextView;
 
 import android.os.Bundle;
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.RecyclerView;
 
 
-import java.lang.reflect.Field;
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Iterator;
+import com.draizyyy.myreportcard.R;
+import com.draizyyy.myreportcard.fragments.LessonInfoActivity;
+import com.draizyyy.myreportcard.pojos.Lesson;
+
 import java.util.List;
-import java.util.ListIterator;
 
 public class MyLessonAdapter extends RecyclerView.Adapter<MyLessonAdapter.MyViewHolder> {
     private final List<Lesson> list;

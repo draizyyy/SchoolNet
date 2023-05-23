@@ -1,19 +1,16 @@
-package com.draizyyy.myreportcard;
+package com.draizyyy.myreportcard.adapters;
 
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.draizyyy.myreportcard.Lesson;
-import com.draizyyy.myreportcard.MyLessonAdapter;
-import com.draizyyy.myreportcard.News;
 import com.draizyyy.myreportcard.R;
+import com.draizyyy.myreportcard.pojos.Grade;
 
 import java.util.List;
 

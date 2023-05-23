@@ -1,4 +1,4 @@
-package com.draizyyy.myreportcard;
+package com.draizyyy.myreportcard.actiivities;
 
 import android.content.Context;
 import android.os.VibrationEffect;
@@ -12,8 +12,13 @@ import androidx.fragment.app.FragmentTransaction;
 import android.os.Bundle;
 import android.view.View;
 
+import com.draizyyy.myreportcard.fragments.NewsActivity;
+import com.draizyyy.myreportcard.R;
+import com.draizyyy.myreportcard.fragments.TimetableActivity;
 import com.draizyyy.myreportcard.databinding.ActivityMainBinding;
-import com.google.firebase.auth.FirebaseAuth;
+import com.draizyyy.myreportcard.fragments.AccountActivity;
+import com.draizyyy.myreportcard.fragments.GradeActivity;
+import com.draizyyy.myreportcard.fragments.HomeworksActivity;
 
 public class MainActivity extends AppCompatActivity {
     private ActivityMainBinding binding;

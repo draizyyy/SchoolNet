@@ -13,7 +13,7 @@
         android:id="@+id/day_and_date"
         android:orientation="vertical"
         android:background="@drawable/day_style"
-        tools:context=".TimetableActivity">
+        tools:context=".fragments.TimetableActivity">
         <TextView
             android:layout_marginStart="15dp"
             android:id="@+id/day_name"

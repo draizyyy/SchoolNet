@@ -1,30 +1,23 @@
-package com.draizyyy.myreportcard;
+package com.draizyyy.myreportcard.fragments;
 
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.LinearSnapHelper;
-import androidx.recyclerview.widget.PagerSnapHelper;
-import androidx.recyclerview.widget.RecyclerView;
-import androidx.recyclerview.widget.SnapHelper;
 
-import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
 
+import com.draizyyy.myreportcard.App;
+import com.draizyyy.myreportcard.adapters.MyGradeAdapter;
 import com.draizyyy.myreportcard.databinding.ActivityGradesBinding;
-import com.draizyyy.myreportcard.databinding.NewSBinding;
-import com.draizyyy.myreportcard.databinding.ActivityNewsBinding;
+import com.draizyyy.myreportcard.pojos.Grade;
+import com.draizyyy.myreportcard.room.DayDao;
 
 public class GradeActivity extends Fragment {
     private final List<Grade> gradesList = new ArrayList<>();

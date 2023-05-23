@@ -1,17 +1,14 @@
-package com.draizyyy.myreportcard;
+package com.draizyyy.myreportcard.actiivities;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.draizyyy.myreportcard.databinding.ActivityLoginBinding;
+import com.draizyyy.myreportcard.pojos.User;
 import com.draizyyy.myreportcard.databinding.FragmentRegistrationBinding;
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
-import com.google.firebase.auth.AuthResult;
+import com.draizyyy.myreportcard.retrofit.NetworkService;
 import com.google.firebase.auth.FirebaseAuth;
 
 public class RegistrationActivity extends AppCompatActivity {
@@ -31,8 +28,11 @@ public class RegistrationActivity extends AppCompatActivity {
             FirebaseAuth.getInstance().createUserWithEmailAndPassword(login, password).addOnCompleteListener(task -> {
                 if (task.isSuccessful()) {
                     new Thread(() -> {
-                        DayDao dayDao = App.getDatabase().dayDao();
-                        dayDao.insertUser(new User(login, name, surname));
+                        NetworkService networkService = new NetworkService();
+                        System.out.println("login + " + login);
+                        networkService.addUser(new User(login, name, surname));
+//                        DayDao dayDao = App.getDatabase().dayDao();
+//                        dayDao.insertUser(new User(login, name, surname));
                     }).start();
                     Intent intent = new Intent(RegistrationActivity.this, LoginActivity.class);
 //            intent.putExtra("name", getTextValue(binding.email));

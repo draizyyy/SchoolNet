@@ -1,4 +1,4 @@
-package com.draizyyy.myreportcard;
+package com.draizyyy.myreportcard.pojos;
 
 import androidx.annotation.NonNull;
 import androidx.room.ColumnInfo;

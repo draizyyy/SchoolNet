@@ -1,4 +1,4 @@
-package com.draizyyy.myreportcard;
+package com.draizyyy.myreportcard.fragments;
 
 import android.graphics.Color;
 import android.os.Bundle;
