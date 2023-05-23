@@ -29,7 +29,7 @@ public class GradeActivity extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        gradesBinding = gradesBinding.inflate(inflater, container, false);
+        gradesBinding = ActivityGradesBinding.inflate(inflater, container, false);
 
         setupUI();
 

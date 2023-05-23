@@ -20,8 +20,8 @@ public class Grade {
         int amountOfGrades = 0;
         int sumOfGrades = 0;
         for (String grade: grades) {
-            ++amountOfGrades;
-            if (!Objects.equals(grade, "")) {
+            if (!Objects.equals(grade, "") && grade != null) {
+                ++amountOfGrades;
                 sumOfGrades += Integer.parseInt(grade);
             }
         }
