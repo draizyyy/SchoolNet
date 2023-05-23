@@ -42,7 +42,7 @@
         android:textSize="30sp">
     </TextView>
     <EditText
-        android:hint="Логин"
+        android:hint="Введите почту"
         android:imeOptions="actionNext"
         android:singleLine="true"
         android:paddingStart="15dp"
@@ -66,7 +66,7 @@
         android:id="@+id/reg_password"
         android:inputType="textPassword"
         android:background="@drawable/lesson_style"
-        android:hint="Пароль"
+        android:hint="Введите пароль"
         android:layout_marginTop="20dp"
         android:layout_marginStart="40dp"
         android:layout_marginEnd="40dp"
@@ -102,7 +102,7 @@
         android:paddingEnd="15dp"
         android:id="@+id/reg_name"
         android:background="@drawable/lesson_style"
-        android:hint="Имя"
+        android:hint="Введите имя"
         android:layout_marginStart="40dp"
         android:layout_marginEnd="40dp"
         android:layout_marginTop="20dp"
@@ -120,7 +120,7 @@
         android:paddingEnd="15dp"
         android:id="@+id/reg_surname"
         android:background="@drawable/lesson_style"
-        android:hint="Фамилия"
+        android:hint="Введите фамилию"
         android:layout_marginStart="40dp"
         android:layout_marginEnd="40dp"
         android:layout_marginTop="20dp"

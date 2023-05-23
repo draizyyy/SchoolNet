@@ -2,15 +2,15 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:paddingVertical="10dp"
-    android:layout_marginTop="5dp"
-    android:layout_marginBottom="5dp"
+    android:layout_marginTop="2dp"
+    android:layout_marginBottom="3dp"
     android:layout_marginRight="3dp"
     android:layout_marginLeft="3dp"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
     android:background="@drawable/lesson_style"
-    android:elevation="2dp">
+    android:elevation="1dp">
     <TextView
         android:id="@+id/homework_name_of_lesson"
         android:textColor="@color/firstly_text_color"

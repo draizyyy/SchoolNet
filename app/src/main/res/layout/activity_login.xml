@@ -29,102 +29,105 @@
             android:textColor="@color/schoolnet_text_color">
         </TextView>
     </LinearLayout>
+
     <LinearLayout
+        android:id="@+id/reg_fields"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/reg_fields"
-        android:orientation="vertical"
-        android:layout_centerInParent="true">
+        android:layout_centerInParent="true"
+        android:orientation="vertical">
+
         <TextView
-            android:textColor="@color/schoolnet_text_color"
             android:layout_width="wrap_content"
-            android:layout_marginTop="35dp"
             android:layout_height="wrap_content"
-            android:text="Вход"
             android:layout_gravity="center_horizontal"
+            android:layout_marginTop="35dp"
+            android:text="Вход"
+            android:textColor="@color/schoolnet_text_color"
             android:textSize="43sp">
         </TextView>
+
         <EditText
-            android:hint="Логин"
-            android:imeOptions="actionNext"
-            android:singleLine="true"
-            android:paddingStart="15dp"
-            android:paddingEnd="15dp"
-            android:background="@drawable/lesson_style"
-            android:layout_marginTop="60dp"
-            android:layout_marginStart="40dp"
-            android:layout_marginEnd="40dp"
+            android:id="@+id/login_login"
             android:layout_width="match_parent"
             android:layout_height="55dp"
-            android:id="@+id/login_login"
+            android:layout_marginStart="40dp"
+            android:layout_marginTop="60dp"
+            android:layout_marginEnd="40dp"
+            android:background="@drawable/lesson_style"
             android:elevation="1dp"
-            android:textSize="19sp"
-            android:textColorHint="@color/schoolnet_hint_color"
-            >
-        </EditText>
-        <EditText
-            android:imeOptions="actionDone"
+            android:hint="Введите почту"
+            android:imeOptions="actionNext"
             android:paddingStart="15dp"
             android:paddingEnd="15dp"
+            android:singleLine="true"
+            android:textColorHint="@color/schoolnet_hint_color"
+            android:textSize="19sp">
+        </EditText>
+
+        <EditText
             android:id="@+id/login_password"
-            android:inputType="textPassword"
-            android:background="@drawable/lesson_style"
-            android:hint="Пароль"
-            android:layout_marginTop="30dp"
+            android:layout_width="match_parent"
+            android:layout_height="55dp"
             android:layout_marginStart="40dp"
+            android:layout_marginTop="30dp"
             android:layout_marginEnd="40dp"
             android:layout_marginBottom="15dp"
-            android:textSize="19sp"
-            android:layout_width="match_parent"
-            android:layout_height="55dp"
+            android:background="@drawable/lesson_style"
             android:elevation="1dp"
+            android:hint="Введите пароль"
+            android:imeOptions="actionDone"
+            android:inputType="textPassword"
+            android:paddingStart="15dp"
+            android:paddingEnd="15dp"
             android:textColorHint="@color/schoolnet_hint_color"
-            >
+            android:textSize="19sp">
         </EditText>
+
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="5dp"
             android:layout_marginBottom="10dp"
-            android:orientation="horizontal" >
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textSize="18sp"
-                android:text="Ещё нет аккаунта? "
-                android:textColor="@color/schoolnet_text_color">
-            </TextView>
-            <TextView
-                android:id="@+id/registration_button"
-                android:textColor="@color/blue"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Регистрация"
-                android:textSize="18sp" >
-            </TextView>
-        </LinearLayout>
-        <RelativeLayout
-            android:layout_marginBottom="50dp"
-            android:layout_marginTop="35dp"
-            android:layout_width="wrap_content"
-            android:elevation="1dp"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:background="@drawable/button_style" >
+            android:orientation="horizontal">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:text="Ещё нет аккаунта? "
+                android:textColor="@color/schoolnet_text_color"
+                android:textSize="18sp"></TextView>
+
+            <TextView
+                android:id="@+id/registration_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Регистрация"
+                android:textColor="@color/blue"
+                android:textSize="18sp"></TextView>
+        </LinearLayout>
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="35dp"
+            android:layout_marginBottom="50dp"
+            android:background="@drawable/button_style"
+            android:elevation="1dp">
+
+            <TextView
+                android:id="@+id/login_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_centerInParent="true"
                 android:padding="10dp"
-                android:id="@+id/login_button"
                 android:paddingStart="40dp"
                 android:paddingEnd="40dp"
                 android:text="Войти"
                 android:textColor="@color/schoolnet_text_color"
-                android:textSize="25sp">
-            </TextView>
+                android:textSize="25sp"></TextView>
         </RelativeLayout>
     </LinearLayout>
 </RelativeLayout>
