@@ -111,11 +111,6 @@ public class LoginActivity extends AppCompatActivity {
 //                    }
 //                }).start();
                 AsyncTask.execute(() -> {
-                    try {
-                        Thread.sleep(2000);
-                    } catch (InterruptedException e) {
-                        e.printStackTrace();
-                    }
                     isAnimationEnded = true;
                     startMainActivity(binding.loginLogin.getText().toString().trim());
                     isTaskSuccessful = false;
@@ -190,14 +185,13 @@ public class LoginActivity extends AppCompatActivity {
                     public void onAnimationStart(Animation animation) {
 
                     }
-
                     @Override
                     public void onAnimationEnd(Animation animation) {
                         String name = "SchoolNet";
                         binding.loadingAnim.setImageResource(R.drawable.iconus_v2_gif);
                         binding.schoolnetButItsText.setText(name);
-                        binding.loadingAnim.startAnimation(fadeOut_reverse);
-                        binding.schoolnetButItsText.startAnimation(close_reverse);
+                        binding.loadingAnim.startAnimation(close_reverse);
+                        binding.schoolnetButItsText.startAnimation(fadeOut_reverse);
                     }
 
                     @Override
