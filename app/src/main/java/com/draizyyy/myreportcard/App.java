@@ -2,6 +2,7 @@ package com.draizyyy.myreportcard;
 
 import android.app.Application;
 import android.util.Log;
+import android.widget.Toast;
 
 import androidx.room.Room;
 
@@ -39,12 +40,15 @@ public class App extends Application {
 //            newsList.add(new News("Администрация", "20 апреля", "Завтра уроки отменяются"));
 //            newsList.add(new News("Королёв Б.И.", "17 апреля", "Завтра отменяются все уроки физики, потому что я сегодня добрый."));
 //            newsList.add(new News("Кручинина О.Б.", "19 апреля", "Сегодня уроков не будет, можете идти домой"));
-            dayDao.deleteAllLessons();
-            dayDao.deleteAllDays();
-            newsDao.deleteAllNews();
 
-            newsDao.insertAllNews(news);
-            dayDao.insertAllDays(days);
+            if (news.size() != 0 && days.size() != 0) {
+                dayDao.deleteAllLessons();
+                dayDao.deleteAllDays();
+                newsDao.deleteAllNews();
+                newsDao.insertAllNews(news);
+                dayDao.insertAllDays(days);
+            }
+
         }).start();
         Log.i("MY APP", "inserting done");
     }

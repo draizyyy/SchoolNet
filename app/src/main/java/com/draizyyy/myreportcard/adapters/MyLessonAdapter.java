@@ -1,8 +1,11 @@
 package com.draizyyy.myreportcard.adapters;
 
+import android.text.Layout;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import android.os.Bundle;
@@ -40,6 +43,7 @@ public class MyLessonAdapter extends RecyclerView.Adapter<MyLessonAdapter.MyView
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
         final Lesson lesson = list.get(position);
         final View view = holder.view;
+        String classroom;
         view.setOnClickListener(view1 -> {
             Bundle bundle = new Bundle();
             bundle.putString("name", lesson.name);
@@ -57,6 +61,16 @@ public class MyLessonAdapter extends RecyclerView.Adapter<MyLessonAdapter.MyView
         holder.name.setText(lesson.getName());
         holder.start_time.setText(String.valueOf(lesson.getStart_time()));
         holder.finish_time.setText(lesson.getFinish_time());
+        if (lesson.classroom != null && !lesson.classroom.equals("") && !lesson.classroom.equals(" ")) {
+            classroom = "каб. " + lesson.classroom;
+        }
+        else {
+            RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) holder.name.getLayoutParams();
+            layoutParams.addRule(RelativeLayout.CENTER_IN_PARENT);
+            classroom = lesson.classroom;
+            holder.classroom.setVisibility(View.GONE);
+        }
+        holder.classroom.setText(classroom);
         holder.grade.setText(lesson.getGrade());
 //        Log.v("MY APP", "запрашиваемый номер элемента: " + (bundleList.size() - 1) + ", всего элементов в листе:  " + bundleList.size());
     }
@@ -70,6 +84,7 @@ public class MyLessonAdapter extends RecyclerView.Adapter<MyLessonAdapter.MyView
         private final TextView start_time;
         private final TextView finish_time;
         private final TextView grade;
+        private final TextView classroom;
         private final View view;
 
         public MyViewHolder(@NonNull View itemView) {
@@ -78,6 +93,7 @@ public class MyLessonAdapter extends RecyclerView.Adapter<MyLessonAdapter.MyView
             name = itemView.findViewById(R.id.name_of_lesson);
             start_time = itemView.findViewById(R.id.start_time_of_lesson);
             finish_time = itemView.findViewById(R.id.finish_time_of_lesson);
+            classroom = itemView.findViewById(R.id.number_of_class);
             grade = itemView.findViewById(R.id.grade);
 //            itemView.setOnTouchListener((v, event) -> {
 //                X = event.getX();

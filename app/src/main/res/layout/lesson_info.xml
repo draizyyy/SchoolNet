@@ -150,47 +150,22 @@
                 android:text="Адрес учебного заведения"
                 android:background="@color/week_background">
             </TextView>
-            <LinearLayout
-                android:id="@+id/addressFull"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center_horizontal"
-                android:orientation="vertical"
+            <TextView
                 android:layout_marginTop="3dp"
                 android:layout_marginBottom="3dp"
                 android:layout_marginEnd="3dp"
                 android:layout_marginStart="3dp"
                 android:padding="10dp"
+                android:background="@drawable/lesson_style"
+                android:layout_width="match_parent"
+                android:gravity="center_horizontal"
+                android:layout_height="wrap_content"
+                android:id="@+id/address"
+                tools:text="Кленовый бульвар, 21"
+                android:textColor="@color/main_text_color"
                 android:elevation="2dp"
-                android:background="@drawable/lesson_style">
-                <LinearLayout
-                    android:layout_marginTop="10dp"
-                    android:layout_marginBottom="10dp"
-                    android:id="@+id/where"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal">
-                    <TextView
-                        android:textColor="@color/main_text_color"
-                        android:id="@+id/address"
-                        android:layout_weight="1"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textSize="20sp"
-                        android:text="Пролетарский пр., 6,"
-                        android:layout_marginEnd="10dp">
-                    </TextView>
-                    <TextView
-                        android:textColor="@color/main_text_color"
-                        android:layout_weight="1"
-                        android:id="@+id/school"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textSize="20sp"
-                        android:text="Лицей 1511">
-                    </TextView>
-                </LinearLayout>
-            </LinearLayout>
+                android:textSize="20sp">
+            </TextView>
             <TextView
                 android:layout_marginTop="3dp"
                 android:layout_marginBottom="3dp"
@@ -216,7 +191,7 @@
                 android:gravity="center_horizontal"
                 android:layout_height="wrap_content"
                 android:id="@+id/classroom"
-                android:text="215А"
+                tools:text="215А"
                 android:textColor="@color/main_text_color"
                 android:elevation="2dp"
                 android:textSize="20sp">
@@ -259,7 +234,7 @@
                     android:layout_marginEnd="7dp"
                     android:layout_marginBottom="9dp"
                     android:gravity="center"
-                    android:text="Прочитать Бэлу, подготовить ответы с опорой на текст на вопросы из ДЗ: закладки/выписанные на листок с заданием номера страниц. Учим и сдаём второе из пяти стихотворений Лермонтова.Прочитать Бэлу, подготовить ответы с опорой на текст на вопросы из ДЗ: закладки/выписанные на листок с заданием номера страниц. Учим и сдаём второе из пяти стихотворений Лермонтова.Прочитать Бэлу, подготовить ответы с опорой на текст на вопросы из ДЗ: закладки/выписанные на листок с заданием номера страниц. Учим и сдаём второе из пяти стихотворений Лермонтова.Прочитать Бэлу, подготовить ответы с опорой на текст на вопросы из ДЗ: закладки/выписанные на листок с заданием номера страниц. Учим и сдаём второе из пяти стихотворений Лермонтова."
+                    tools:text="Прочитать Бэлу, подготовить ответы с опорой на текст на вопросы из ДЗ: закладки/выписанные на листок с заданием номера страниц. Учим и сдаём второе из пяти стихотворений Лермонтова.Прочитать Бэлу, подготовить ответы с опорой на текст на вопросы из ДЗ: закладки/выписанные на листок с заданием номера страниц. Учим и сдаём второе из пяти стихотворений Лермонтова.Прочитать Бэлу, подготовить ответы с опорой на текст на вопросы из ДЗ: закладки/выписанные на листок с заданием номера страниц. Учим и сдаём второе из пяти стихотворений Лермонтова.Прочитать Бэлу, подготовить ответы с опорой на текст на вопросы из ДЗ: закладки/выписанные на листок с заданием номера страниц. Учим и сдаём второе из пяти стихотворений Лермонтова."
                     android:textColor="@color/main_text_color"
                     android:textSize="20sp">
                 </TextView>

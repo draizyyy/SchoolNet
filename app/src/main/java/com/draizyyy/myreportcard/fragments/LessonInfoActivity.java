@@ -32,8 +32,9 @@ public class LessonInfoActivity extends Fragment {
             String schoolName = bundle.getString("schoolName");
             String classroom = bundle.getString("classroom");
             String teacher = bundle.getString("teacher");
+            String addressAndSchool;
             if (!address.equals("") && !schoolName.equals("")) {
-                address += ",";
+                addressAndSchool = address + ", " + schoolName;
             }
 
             if (name.equals("")) {
@@ -48,7 +49,16 @@ public class LessonInfoActivity extends Fragment {
 
             if (address.equals("") && schoolName.equals("")) {
                 binding.addressInv.setVisibility(View.GONE);
-                binding.addressFull.setVisibility(View.GONE);
+                binding.address.setVisibility(View.GONE);
+                addressAndSchool = "";
+            }
+            else {
+                if (!address.equals("")) {
+                    addressAndSchool = address;
+                }
+                else {
+                    addressAndSchool = schoolName;
+                }
             }
 
             if (classroom.equals(""))  {
@@ -70,8 +80,7 @@ public class LessonInfoActivity extends Fragment {
             binding.homework.setText(homework);
             binding.newNameOfLesson.setText(name);
             binding.teacher.setText(teacher);
-            binding.address.setText(address);
-            binding.school.setText(schoolName);
+            binding.address.setText(addressAndSchool);
             binding.classroom.setText(classroom);
         }
 //        Window window = getActivity().getWindow();

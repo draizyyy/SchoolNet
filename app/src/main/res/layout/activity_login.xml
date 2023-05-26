@@ -9,15 +9,19 @@
         android:orientation="vertical"
         android:layout_marginTop="15dp"
         android:layout_centerHorizontal="true">
-        <ImageView
+        <pl.droidsonroids.gif.GifImageView
+            android:id="@+id/loading_anim"
             android:layout_marginTop="20dp"
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:alpha="0.85"
+            android:scaleX="1"
+            android:scaleY="1"
             android:layout_gravity="center_horizontal"
-            android:src="@drawable/iconus_v2">
-        </ImageView>
+            android:src="@drawable/iconus_v2_gif"
+        />
         <TextView
+            android:id="@+id/schoolnet_but_its_text"
             android:alpha="0.85"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -97,7 +101,8 @@
                 android:layout_height="wrap_content"
                 android:text="Ещё нет аккаунта? "
                 android:textColor="@color/schoolnet_text_color"
-                android:textSize="18sp"></TextView>
+                android:textSize="18sp">
+            </TextView>
 
             <TextView
                 android:id="@+id/registration_button"
@@ -105,7 +110,8 @@
                 android:layout_height="wrap_content"
                 android:text="Регистрация"
                 android:textColor="@color/blue"
-                android:textSize="18sp"></TextView>
+                android:textSize="18sp">
+            </TextView>
         </LinearLayout>
 
         <RelativeLayout
@@ -127,7 +133,8 @@
                 android:paddingEnd="40dp"
                 android:text="Войти"
                 android:textColor="@color/schoolnet_text_color"
-                android:textSize="25sp"></TextView>
+                android:textSize="25sp">
+            </TextView>
         </RelativeLayout>
     </LinearLayout>
 </RelativeLayout>
