@@ -11,7 +11,7 @@ import java.util.Objects;
 
 @RestController
 @RequestMapping("/news")
-public class NewsContoller {
+public class NewsController {
     List<News> newsList = new ArrayList<>();
     boolean isFilled = false;
 
