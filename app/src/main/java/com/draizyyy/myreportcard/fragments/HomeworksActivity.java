@@ -62,8 +62,8 @@ public class HomeworksActivity extends Fragment {
             DayDao dayDao = App.getDatabase().dayDao();
             Log.i("MY APP", "got dao");
             dayList.addAll(dayDao.getAllDayWithNotNullLessonsHomework());
-            Day day = dayList.get(2);
-            Log.i("MY APP", "timetable dayList 2 day lessonList size: " + day.LessonsList.size());
+//            Day day = dayList.get(2);
+//            Log.i("MY APP", "timetable dayList 2 day lessonList size: " + day.LessonsList.size());
         }).start();
         Log.i("MY APP", "done1");
     }

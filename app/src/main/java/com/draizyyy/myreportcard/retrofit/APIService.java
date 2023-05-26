@@ -1,6 +1,7 @@
 package com.draizyyy.myreportcard.retrofit;
 
 import com.draizyyy.myreportcard.pojos.Day;
+import com.draizyyy.myreportcard.pojos.Message;
 import com.draizyyy.myreportcard.pojos.News;
 import com.draizyyy.myreportcard.pojos.User;
 
@@ -22,4 +23,8 @@ public interface APIService {
     Call<User> addNewUser(@Body User user);
     @GET("/users/{mail}")
     Call<User> getUserByMail(@Path("mail") String mail);
+    @GET("/ping")
+    Call<Message> ping();
+    @GET("/message/{text}")
+    Call<String> sendMessageToServer(@Path("text") String text);
 }

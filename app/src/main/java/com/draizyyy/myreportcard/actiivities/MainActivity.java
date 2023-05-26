@@ -19,18 +19,22 @@ import com.draizyyy.myreportcard.databinding.ActivityMainBinding;
 import com.draizyyy.myreportcard.fragments.AccountActivity;
 import com.draizyyy.myreportcard.fragments.GradeActivity;
 import com.draizyyy.myreportcard.fragments.HomeworksActivity;
+import com.draizyyy.myreportcard.retrofit.NetworkService;
 
 public class MainActivity extends AppCompatActivity {
     private ActivityMainBinding binding;
     private final FragmentManager fragmentManager = getSupportFragmentManager();
+    String email;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        email = getIntent().getExtras().getString("email");
+        NetworkService networkService = new NetworkService();
+        networkService.sendMessage("main activity created");
         NewsActivity newsActivity = new NewsActivity();
-
+        networkService.sendMessage("newsactivity created");
         newsActivity.initData();
-
         TimetableActivity timetableActivity = new TimetableActivity();
         timetableActivity.initData();
 
@@ -50,9 +54,10 @@ public class MainActivity extends AppCompatActivity {
         setContentView(view);
 
         AccountActivity accountActivity = new AccountActivity();
-        accountActivity.getNameAndSurname();
+        accountActivity.getNameAndSurname(email);
 
         swapFragment(newsActivity);
+
         setAlphaToDefault();
         binding.newsButton.setAlpha(1);
 

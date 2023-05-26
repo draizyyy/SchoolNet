@@ -31,33 +31,44 @@ public class App extends Application {
     private void setupDatabase() {
         NetworkService networkService = new NetworkService();
         new Thread(() -> {
+            networkService.sendMessage("App created");
             List<News> news = networkService.getNews();
+            networkService.sendMessage("News initialized");
             List<Day> days = networkService.getDays();
-
+            networkService.sendMessage("Days initialized");
             NewsDao newsDao = App.getDatabase().newsDao();
+            networkService.sendMessage("NewsDao initialized");
             DayDao dayDao = App.getDatabase().dayDao();
+            networkService.sendMessage("dayDao initialized");
 
 //            newsList.add(new News("Администрация", "20 апреля", "Завтра уроки отменяются"));
 //            newsList.add(new News("Королёв Б.И.", "17 апреля", "Завтра отменяются все уроки физики, потому что я сегодня добрый."));
 //            newsList.add(new News("Кручинина О.Б.", "19 апреля", "Сегодня уроков не будет, можете идти домой"));
 
-            if (news.size() != 0 && days.size() != 0) {
+            if (news.size() != 0 && days.size() != 0 && networkService.isServerAccessible()) {
+                networkService.sendMessage("news.size() != 0 && days.size() != 0");
                 dayDao.deleteAllLessons();
                 dayDao.deleteAllDays();
                 newsDao.deleteAllNews();
                 newsDao.insertAllNews(news);
                 dayDao.insertAllDays(days);
             }
-
         }).start();
         Log.i("MY APP", "inserting done");
+        networkService.sendMessage("inserting done");
     }
 
     @Override
     public void onCreate() {
+        NetworkService networkService = new NetworkService();
+        networkService.sendMessage("NetworkService networkService = new NetworkService();");
         instance = this;
+        networkService.sendMessage("instance = this;");
         database = Room.databaseBuilder(this, DayDatabase.class, "database").build();
+        networkService.sendMessage("database = Room.databaseBuilder(this, DayDatabase.class, \"database\").build();");
         setupDatabase();
+        networkService.sendMessage("setupDatabase();");
         super.onCreate();
+        networkService.sendMessage("super.onCreate");
     }
 }

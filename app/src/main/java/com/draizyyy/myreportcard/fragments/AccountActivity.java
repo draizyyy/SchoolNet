@@ -38,9 +38,8 @@ public class AccountActivity extends Fragment {
         });
         return binding.getRoot();
     }
-    public void getNameAndSurname() {
+    public void getNameAndSurname(String email) {
         new Thread(() -> {
-            String email = Objects.requireNonNull(FirebaseAuth.getInstance().getCurrentUser()).getEmail();
             NetworkService networkService = new NetworkService();
 //            DayDao dayDao = App.getDatabase().dayDao();
             User user = networkService.getUserByMail(email);
@@ -48,4 +47,5 @@ public class AccountActivity extends Fragment {
             mail = user.mail;
         }).start();
     }
+
 }

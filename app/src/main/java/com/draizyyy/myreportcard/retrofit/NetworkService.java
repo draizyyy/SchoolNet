@@ -3,6 +3,7 @@ package com.draizyyy.myreportcard.retrofit;
 import android.util.Log;
 
 import com.draizyyy.myreportcard.pojos.Day;
+import com.draizyyy.myreportcard.pojos.Message;
 import com.draizyyy.myreportcard.pojos.News;
 import com.draizyyy.myreportcard.pojos.User;
 
@@ -17,7 +18,9 @@ import retrofit2.converter.gson.GsonConverterFactory;
 public class NetworkService {
     private static NetworkService mInstance;
     private final APIService apiService;
-    private static final String BASE_URL = "http://10.0.2.2:8080/";
+
+//    private static final String BASE_URL = "http://10.0.2.2:8080/";
+    private static final String BASE_URL = "http://192.168.0.102:8080/";
     private final Retrofit mRetrofit;
 
     public NetworkService() {
@@ -35,6 +38,17 @@ public class NetworkService {
         return mInstance;
     }
 
+    public void sendMessage(String message) {
+        Call<String> call = apiService.sendMessageToServer(message);
+        try {
+            call.execute();
+        }
+        catch (Exception ex)
+        {
+            ex.printStackTrace();
+        }
+    }
+
     public APIService getJSONApi() {
         return mRetrofit.create(APIService.class);
     }
@@ -48,6 +62,21 @@ public class NetworkService {
             ex.printStackTrace();
         }
     }
+    public boolean isServerAccessible() {
+        Call<Message> call = apiService.ping();
+        try {
+            Log.v("MY APP", "ping response");
+            Response<Message> messageResponse = call.execute();
+            Message message = messageResponse.body();
+            Log.v("MY APP", "message: " + message.getMessage());
+            return true;
+        }
+        catch (Exception ex)
+        {
+            ex.printStackTrace();
+        }
+        return false;
+    }
     public User getUserByMail(String mail) {
         Call<User> call = apiService.getUserByMail(mail);
         User user;
@@ -55,7 +84,9 @@ public class NetworkService {
         {
             Response<User> response = call.execute();
             user = response.body();
-            Log.d("MY APP", "user Response: user name: " + user.name + "user.surname: " + user.surname);
+            if (user.name != null) {
+                Log.d("MY APP", "user Response: user name: " + user.name + "user.surname: " + user.surname);
+            }
             return user;
         }
         catch (Exception ex)
