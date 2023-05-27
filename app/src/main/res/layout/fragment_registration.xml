@@ -13,15 +13,19 @@
 <!--        android:layout_centerHorizontal="true">-->
 <!--        -->
 <!--    </LinearLayout>-->
-    <ImageView
+    <pl.droidsonroids.gif.GifImageView
+        android:id="@+id/loading_anim_reg"
         android:layout_marginTop="20dp"
         android:layout_width="50dp"
         android:layout_height="50dp"
         android:alpha="0.85"
+        android:scaleX="1"
+        android:scaleY="1"
         android:layout_gravity="center_horizontal"
-        android:src="@drawable/iconus_v2">
-    </ImageView>
+        android:src="@drawable/iconus_v2_gif" >
+    </pl.droidsonroids.gif.GifImageView>
     <TextView
+        android:id="@+id/schoolnet_name"
         android:alpha="0.85"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

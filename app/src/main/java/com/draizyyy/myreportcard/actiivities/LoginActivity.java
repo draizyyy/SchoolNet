@@ -110,19 +110,17 @@ public class LoginActivity extends AppCompatActivity {
 //
 //                    }
 //                }).start();
-                AsyncTask.execute(() -> {
-                    isAnimationEnded = true;
-                    startMainActivity(binding.loginLogin.getText().toString().trim());
-                    isTaskSuccessful = false;
-                    isAnimationEnded = false;
-                });
+                isAnimationEnded = true;
+                startMainActivity(binding.loginLogin.getText().toString().trim());
+                isTaskSuccessful = false;
+                isAnimationEnded = false;
             }
             @Override
             public void onAnimationRepeat(Animation animation) {
             }
         });
         binding.loginButton.setOnClickListener(view1 -> {
-            v.vibrate(VibrationEffect.createOneShot(50, VibrationEffect.DEFAULT_AMPLITUDE));
+            v.vibrate(VibrationEffect.createOneShot(20, VibrationEffect.DEFAULT_AMPLITUDE));
             binding.schoolnetButItsText.startAnimation(fadeOut);
             binding.loadingAnim.startAnimation(close);
             new Thread(() -> {
@@ -140,31 +138,49 @@ public class LoginActivity extends AppCompatActivity {
                             isMainActivityLoaded = false;
                         }
                     }
+                    else {
+                        h.post(() -> makeMyToast("Проверьте правильность введённых данных"));
+                        binding.loadingAnim.startAnimation(open_reverse);
+                        binding.schoolnetButItsText.startAnimation(fadeIn_reverse);
+                        fadeIn_reverse.setAnimationListener(new Animation.AnimationListener() {
+                            @Override
+                            public void onAnimationStart(Animation animation) {
+
+                            }
+                            @Override
+                            public void onAnimationEnd(Animation animation) {
+                                String name = "SchoolNet";
+                                binding.loadingAnim.setImageResource(R.drawable.iconus_v2_gif);
+                                binding.schoolnetButItsText.setText(name);
+                                binding.loadingAnim.startAnimation(close_reverse);
+                                binding.schoolnetButItsText.startAnimation(fadeOut_reverse);
+                            }
+                            @Override
+                            public void onAnimationRepeat(Animation animation) {
+                            }
+                        });
+                    }
                 });
             }).start();
         });
     }
-
+    private void makeMyToast(String message) {
+        Toast.makeText(getApplicationContext(), message, Toast.LENGTH_SHORT).show();
+    }
     private void makeBadToast() {
         Toast.makeText(getApplicationContext(), "Сервер недоступен", Toast.LENGTH_LONG).show();
     }
     private void startMainActivity(String email) {
         new Thread(() -> {
             if (networkService.isServerAccessible()) {
-                networkService.sendMessage("App created");
                 List<News> news = networkService.getNews();
-                networkService.sendMessage("News initialized");
                 List<Day> days = networkService.getDays();
-                networkService.sendMessage("Days initialized");
                 NewsDao newsDao = App.getDatabase().newsDao();
-                networkService.sendMessage("NewsDao initialized");
                 DayDao dayDao = App.getDatabase().dayDao();
-                networkService.sendMessage("dayDao initialized");
                 //            newsList.add(new News("Администрация", "20 апреля", "Завтра уроки отменяются"));
                 //            newsList.add(new News("Королёв Б.И.", "17 апреля", "Завтра отменяются все уроки физики, потому что я сегодня добрый."));
                 //            newsList.add(new News("Кручинина О.Б.", "19 апреля", "Сегодня уроков не будет, можете идти домой"));
                 if (news.size() != 0 && days.size() != 0) {
-                    networkService.sendMessage("news.size() != 0 && days.size() != 0");
                     dayDao.deleteAllLessons();
                     dayDao.deleteAllDays();
                     newsDao.deleteAllNews();

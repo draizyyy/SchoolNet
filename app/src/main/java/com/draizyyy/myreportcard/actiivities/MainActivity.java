@@ -30,10 +30,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         email = getIntent().getExtras().getString("email");
-        NetworkService networkService = new NetworkService();
-        networkService.sendMessage("main activity created");
         NewsActivity newsActivity = new NewsActivity();
-        networkService.sendMessage("newsactivity created");
         newsActivity.initData();
         TimetableActivity timetableActivity = new TimetableActivity();
         timetableActivity.initData();

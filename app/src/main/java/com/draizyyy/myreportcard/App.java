@@ -55,20 +55,13 @@ public class App extends Application {
             }
         }).start();
         Log.i("MY APP", "inserting done");
-        networkService.sendMessage("inserting done");
     }
 
     @Override
     public void onCreate() {
-        NetworkService networkService = new NetworkService();
-        networkService.sendMessage("NetworkService networkService = new NetworkService();");
         instance = this;
-        networkService.sendMessage("instance = this;");
         database = Room.databaseBuilder(this, DayDatabase.class, "database").build();
-        networkService.sendMessage("database = Room.databaseBuilder(this, DayDatabase.class, \"database\").build();");
         setupDatabase();
-        networkService.sendMessage("setupDatabase();");
         super.onCreate();
-        networkService.sendMessage("super.onCreate");
     }
 }
