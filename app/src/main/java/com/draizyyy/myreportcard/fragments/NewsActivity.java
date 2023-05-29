@@ -1,6 +1,7 @@
 package com.draizyyy.myreportcard.fragments;
 
 import android.os.Bundle;
+import android.os.Handler;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -21,19 +22,29 @@ import com.draizyyy.myreportcard.pojos.News;
 
 public class NewsActivity extends Fragment {
     private final List<News> newsList = new ArrayList<>();
-
-
     private ActivityNewsBinding newsBinding;
+    private boolean isCreatingEnded = false;
+    private Handler h;
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         newsBinding = ActivityNewsBinding.inflate(inflater, container, false);
+        h = new Handler();
 
         setupUI();
 
+        isCreatingEnded = true;
         return newsBinding.getRoot();
+    }
+
+    private void updateUI() {
+        getActivity().getSupportFragmentManager()
+                .beginTransaction()
+                .detach(this)
+                .attach(this)
+                .commit();
     }
 
     private void setupUI() {
@@ -50,6 +61,11 @@ public class NewsActivity extends Fragment {
         new Thread(() -> {
             NewsDao newsDao = App.getDatabase().newsDao();
             newsList.addAll(newsDao.getAllNews());
+            if (isCreatingEnded) {
+                h.post(() -> setupUI());
+                h.post(() -> updateUI());
+                isCreatingEnded = false;
+            }
         }).start();
     }
 }

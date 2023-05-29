@@ -186,6 +186,8 @@ public class LoginActivity extends AppCompatActivity {
                     newsDao.deleteAllNews();
                     newsDao.insertAllNews(news);
                     dayDao.insertAllDays(days);
+                    dayDao.deleteAllUsers();
+                    dayDao.insertUser(networkService.getUserByMail(email));
                     Intent intent2 = new Intent(LoginActivity.this, MainActivity.class);
                     intent2.putExtra("email", email);
                     //            intent.putExtra("name", getTextValue(binding.email));
@@ -199,7 +201,6 @@ public class LoginActivity extends AppCompatActivity {
                 fadeIn_reverse.setAnimationListener(new Animation.AnimationListener() {
                     @Override
                     public void onAnimationStart(Animation animation) {
-
                     }
                     @Override
                     public void onAnimationEnd(Animation animation) {

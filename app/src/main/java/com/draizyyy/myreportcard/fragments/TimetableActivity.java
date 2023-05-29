@@ -1,6 +1,7 @@
 package com.draizyyy.myreportcard.fragments;
 
 import android.os.Bundle;
+import android.os.Handler;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -9,6 +10,8 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentActivity;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.PagerSnapHelper;
 import androidx.recyclerview.widget.RecyclerView;
@@ -28,7 +31,8 @@ import com.draizyyy.myreportcard.room.DayDao;
 public class TimetableActivity extends Fragment {
 //    private final List<Lesson> lessonList = new ArrayList<>();
     private final List<Day> dayList = new ArrayList<>();
-
+    Handler h;
+    private boolean isCreatingEnded;
     private ActivityTimetableBinding weekBinding;
 
     @Nullable
@@ -36,10 +40,19 @@ public class TimetableActivity extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         weekBinding = ActivityTimetableBinding.inflate(inflater, container, false);
+        h = new Handler();
         setupUI();
+        isCreatingEnded = true;
 
         Log.i("MY APP", "creating done");
         return weekBinding.getRoot();
+    }
+    private void updateUI() {
+        getActivity().getSupportFragmentManager()
+                .beginTransaction()
+                .detach(this)
+                .attach(this)
+                .commit();
     }
     private void setupUI() {
 //        RecyclerView DayRecyclerViewItem
@@ -120,6 +133,11 @@ public class TimetableActivity extends Fragment {
             DayDao dayDao = App.getDatabase().dayDao();
             Log.i("MY APP", "got dao");
             dayList.addAll(dayDao.getAll());
+            if (isCreatingEnded) {
+                h.post(() -> setupUI());
+                h.post(() -> updateUI());
+                isCreatingEnded = false;
+            }
         }).start();
         Log.i("MY APP", "done1");
     }

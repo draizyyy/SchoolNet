@@ -34,10 +34,8 @@ public class MainActivity extends AppCompatActivity {
         newsActivity.initData();
         TimetableActivity timetableActivity = new TimetableActivity();
         timetableActivity.initData();
-
         HomeworksActivity homeworksActivity = new HomeworksActivity();
         homeworksActivity.initData();
-
         GradeActivity gradeActivity = new GradeActivity();
         gradeActivity.initData();
 

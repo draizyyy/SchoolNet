@@ -217,4 +217,7 @@ public abstract class DayDao {
     public abstract void insertUser(User user);
     @Query("SELECT * FROM User WHERE mail = :mail")
     public abstract User getUserByEmail(String mail);
+
+    @Query("DELETE FROM User")
+    public abstract void deleteAllUsers();
 }

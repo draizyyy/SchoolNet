@@ -13,7 +13,6 @@ import com.draizyyy.myreportcard.room.DayDao;
 import com.draizyyy.myreportcard.room.DayDatabase;
 import com.draizyyy.myreportcard.room.NewsDao;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class App extends Application {

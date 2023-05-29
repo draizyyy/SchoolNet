@@ -20,7 +20,7 @@ public class NetworkService {
     private final APIService apiService;
 
 //    private static final String BASE_URL = "http://10.0.2.2:8080/";
-    private static final String BASE_URL = "http://192.168.0.101:8080/";
+    private static final String BASE_URL = "http://192.168.0.102:4521";
     private final Retrofit mRetrofit;
 
     public NetworkService() {
@@ -52,15 +52,17 @@ public class NetworkService {
     public APIService getJSONApi() {
         return mRetrofit.create(APIService.class);
     }
-    public void addUser(User user) {
+    public boolean addUser(User user) {
         Call<User> call = apiService.addNewUser(user);
         try {
             call.execute();
+            return true;
         }
         catch (Exception ex)
         {
             ex.printStackTrace();
         }
+        return false;
     }
     public boolean isServerAccessible() {
         Call<Message> call = apiService.ping();
